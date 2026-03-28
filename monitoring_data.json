@@ -244,6 +244,3926 @@
       "room": "Otros",
       "is_on": false,
       "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.192782",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:08.979324",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:34.422356",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:14:35.056161",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:02.459965",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:15:03.054611",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:23.699107",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:19:39.676772",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:34:24.723867",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T22:49:25.668200",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:04:26.683777",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:19:27.645374",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:34:28.688166",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-28T23:49:29.809623",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:04:30.827309",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Despacho 1",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Despacho 2",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Despacho 3",
+      "room": "Despacho",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Habitaci\u00f3n 1",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Habitaci\u00f3n 2",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Habitaci\u00f3n 3",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Habitaci\u00f3n 4",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Habitaci\u00f3n 5",
+      "room": "Habitaciones",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Vestidor",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Entrada 1",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Entrada 2",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Entrada 3",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Entrada 4",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Entrada 5",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Entrada 6",
+      "room": "Entrada",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Sal\u00f3n 1",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Salon 3",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Sal\u00f3n 2",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Salon 4",
+      "room": "Sal\u00f3n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Escalera",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Ducha Mary",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Mary 2",
+      "room": "Otros",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Mary 3",
+      "room": "Otros",
+      "is_on": true,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Mary 4",
+      "room": "Otros",
+      "is_on": true,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Ba\u00f1o Jose 1",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Ducha Jose",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Ba\u00f1o Jose 3",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Ba\u00f1o Jose 4",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Ba\u00f1o Jose 5",
+      "room": "Ba\u00f1o",
+      "is_on": false,
+      "brightness": 70
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Desvan 1",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Desvan 2",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Desvan 3",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Desvan 4",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Desvan 5",
+      "room": "Desv\u00e1n",
+      "is_on": false,
+      "brightness": 100
+    },
+    {
+      "timestamp": "2026-03-29T00:19:31.813137",
+      "device": "Ender",
+      "room": "Otros",
+      "is_on": false,
+      "brightness": 100
     }
   ],
   "daily": {
@@ -271,7 +4191,7 @@
         },
         "Sal\u00f3n": {
           "minutes_on": 0,
-          "switch_count": 0,
+          "switch_count": 4,
           "last_state": null
         },
         "Ba\u00f1o": {
@@ -287,6 +4207,51 @@
       },
       "total_on_minutes": 0,
       "devices_on": []
+    },
+    "2026-03-29": {
+      "rooms": {
+        "Despacho": {
+          "minutes_on": 0,
+          "switch_count": 0,
+          "last_state": null
+        },
+        "Habitaciones": {
+          "minutes_on": 0,
+          "switch_count": 0,
+          "last_state": null
+        },
+        "Otros": {
+          "minutes_on": 0,
+          "switch_count": 3,
+          "last_state": null
+        },
+        "Entrada": {
+          "minutes_on": 0,
+          "switch_count": 0,
+          "last_state": null
+        },
+        "Sal\u00f3n": {
+          "minutes_on": 0,
+          "switch_count": 0,
+          "last_state": null
+        },
+        "Ba\u00f1o": {
+          "minutes_on": 0,
+          "switch_count": 4,
+          "last_state": null
+        },
+        "Desv\u00e1n": {
+          "minutes_on": 0,
+          "switch_count": 0,
+          "last_state": null
+        }
+      },
+      "total_on_minutes": 0,
+      "devices_on": [
+        "Mary 2",
+        "Mary 3",
+        "Mary 4"
+      ]
     }
   }
 }
