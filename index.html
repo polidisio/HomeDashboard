@@ -2,1279 +2,792 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeDashboard - IKEA Dirigera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>🏠 Mi Casa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-tertiary: #1a1a24;
-            --accent-primary: #00d4aa;
-            --accent-secondary: #7c3aed;
-            --accent-gradient: linear-gradient(135deg, #00d4aa 0%, #0891b2 50%, #7c3aed 100%);
-            --text-primary: #f0f0f5;
-            --text-secondary: #8888a0;
-            --text-muted: #555566;
-            --success: #22c55e;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            --glass-bg: rgba(18, 18, 26, 0.8);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --card-radius: 20px;
-            --btn-radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --bg: #1a1a24;
+            --surface: #252532;
+            --surface-2: #2f2f40;
+            --accent: #4ade80;
+            --accent-dim: rgba(74, 222, 128, 0.15);
+            --blue: #60a5fa;
+            --purple: #a855f7;
+            --text: #ffffff;
+            --text-2: #9ca3af;
+            --text-3: #6b7280;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        
+        html, body { height: 100%; overflow: hidden; }
+        
         body {
-            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 170, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(8, 145, 178, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-gradient);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 8px 32px rgba(0, 212, 170, 0.3);
-        }
-
-        .logo h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header-status {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .status-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            font-size: 0.875rem;
-            backdrop-filter: blur(12px);
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--success);
-            animation: pulse 2s infinite;
-        }
-
-        .status-dot.disconnected {
-            background: var(--error);
-            animation: none;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
-        }
-
-        .refresh-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--btn-radius);
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: var(--transition);
-            backdrop-filter: blur(12px);
-        }
-
-        .refresh-btn:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--accent-primary);
-            transform: translateY(-2px);
-        }
-
-        .refresh-btn.loading svg {
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .room-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--card-radius);
-            padding: 24px;
-            backdrop-filter: blur(16px);
-            transition: var(--transition);
-        }
-
-        .room-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .room-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .room-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .room-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .device-count {
-            margin-left: auto;
-            padding: 4px 12px;
-            background: rgba(0, 212, 170, 0.15);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            color: var(--accent-primary);
-            font-weight: 500;
-        }
-
-        .devices-list {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             display: flex;
             flex-direction: column;
+        }
+        
+        /* TOP BAR */
+        .top-bar {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 12px;
-        }
-
-        .device-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 14px;
-            transition: var(--transition);
-        }
-
-        .device-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .device-item.active {
-            background: rgba(0, 212, 170, 0.08);
-            box-shadow: inset 0 0 20px rgba(0, 212, 170, 0.1);
-        }
-
-        .device-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            background: var(--bg-tertiary);
-            transition: var(--transition);
-        }
-
-        .device-item.active .device-icon {
-            background: var(--accent-gradient);
-            box-shadow: 0 0 20px rgba(0, 212, 170, 0.4);
-        }
-
-        .device-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .device-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .device-status {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 2px;
-        }
-
-        .toggle-switch {
-            position: relative;
-            width: 52px;
-            height: 28px;
-            cursor: pointer;
+            padding: 16px;
+            background: var(--surface);
             flex-shrink: 0;
+            position: relative;
         }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .toggle-slider {
-            position: absolute;
-            inset: 0;
-            background: var(--bg-tertiary);
-            border-radius: 50px;
-            transition: var(--transition);
-        }
-
-        .toggle-slider::before {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 22px;
-            left: 3px;
-            top: 3px;
-            background: var(--text-secondary);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .toggle-switch input:checked + .toggle-slider {
-            background: var(--accent-gradient);
-            box-shadow: 0 0 20px rgba(0, 212, 170, 0.4);
-        }
-
-        .toggle-switch input:checked + .toggle-slider::before {
-            transform: translateX(24px);
-            background: white;
-        }
-
-        .blind-control {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            width: 100%;
-        }
-
-        .blind-slider-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .blind-slider {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100%;
-            height: 8px;
-            background: var(--bg-tertiary);
-            border-radius: 4px;
-            outline: none;
-            cursor: pointer;
-        }
-
-        .blind-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-secondary);
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
-            transition: var(--transition);
-        }
-
-        .blind-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.7);
-        }
-
-        .blind-slider::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background: var(--accent-secondary);
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
-        }
-
-        .blind-position {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .blind-buttons {
-            display: flex;
-            gap: 6px;
-        }
-
-        .blind-btn {
-            padding: 6px 12px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            color: var(--text-secondary);
-            font-family: inherit;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .blind-btn:hover {
-            background: var(--accent-secondary);
-            color: white;
-            border-color: var(--accent-secondary);
-        }
-
-        .sensor-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 14px;
-        }
-
-        .sensor-card.triggered {
-            background: rgba(245, 158, 11, 0.1);
-            animation: sensorPulse 2s ease-in-out;
-        }
-
-        @keyframes sensorPulse {
-            0%, 100% { box-shadow: none; }
-            50% { box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.2); }
-        }
-
-        .sensor-status {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
-
-        .sensor-status.active {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--warning);
-        }
-
-        .sensor-status.inactive {
-            background: rgba(136, 136, 160, 0.2);
-            color: var(--text-secondary);
-        }
-
-        .battery-indicator {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-        }
-
-        .loading-overlay {
+        
+        .fullscreen-btn {
             position: fixed;
-            inset: 0;
-            background: var(--bg-primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            z-index: 1000;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 3px solid var(--bg-tertiary);
-            border-top-color: var(--accent-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        .loading-text {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .error-toast {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            padding: 16px 24px;
-            background: var(--error);
-            color: white;
-            border-radius: var(--btn-radius);
-            font-size: 0.875rem;
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 1001;
-        }
-
-        .error-toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-secondary);
-        }
-
-        .empty-state svg {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 16px;
-            opacity: 0.5;
-        }
-
-        /* Monitoring Section */
-        .monitoring-section {
-            margin-top: 32px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent-gradient);
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
+            border: none;
+            background: var(--surface-2);
+            color: var(--text-2);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 100;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            transition: all 0.2s;
         }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .fullscreen-btn:active { transform: scale(0.95); }
+        
+        .time-card {
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            border-radius: 20px;
+            padding: 14px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
-        .charts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
-        }
-
-        .chart-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--card-radius);
-            padding: 24px;
-            backdrop-filter: blur(16px);
-            transition: var(--transition);
-        }
-
-        .chart-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .chart-header {
+        
+        .time-value { font-size: 36px; font-weight: 700; letter-spacing: -2px; }
+        .time-date { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+        
+        .time-weather {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--glass-border);
+            margin-top: 8px;
+            font-size: 14px;
         }
-
-        .chart-title {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
+        
+        .time-weather-icon { font-size: 20px; }
+        .time-weather-temp { font-weight: 600; }
+        .time-weather-forecast { font-size: 11px; opacity: 0.8; margin-left: 8px; }
+        
+        .scenes-card {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            border-radius: 20px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
-
-        .chart-subtitle {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-left: auto;
+        
+        .scenes-title { font-size: 10px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .scenes-grid { display: flex; gap: 6px; flex: 1; align-items: center; }
+        
+        .scene-btn {
+            flex: 1;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
         }
-
-        .chart-container {
+        
+        .scene-btn:active { transform: scale(0.95); }
+        .scene-btn.active { background: rgba(255,255,255,0.9); color: #8b5cf6; }
+        
+        .mode-card {
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            border-radius: 20px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mode-label { font-size: 10px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+        .mode-value { font-size: 20px; font-weight: 700; margin-top: 6px; }
+        
+        /* NEWS TICKER */
+        .news-ticker {
+            background: var(--surface);
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--surface-2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        
+        .news-badge {
+            background: #ef4444;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .news-track {
+            flex: 1;
+            overflow: hidden;
             position: relative;
-            height: 250px;
         }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 16px;
-            }
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .header-status {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .rooms-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .room-card {
-                padding: 20px;
-            }
+        
+        .news-content {
+            display: flex;
+            gap: 40px;
+            animation: ticker 30s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .news-content:hover { animation-play-state: paused; }
+        
+        .news-item {
+            font-size: 13px;
+            color: var(--text-2);
+        }
+        
+        .news-item span {
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* MAIN - ROOMS GRID */
+        .main {
+            flex: 1;
+            padding: 12px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            align-content: start;
+        }
+        
+        .room-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 14px;
+            border: 2px solid transparent;
+            min-width: 0;
+        }
+        
+        .room-card.has-on { border-color: var(--accent); background: var(--accent-dim); }
+        
+        .room-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            min-width: 0;
+        }
+        
+        .room-info { display: flex; align-items: center; gap: 8px; min-width: 0; }
+        .room-icon { font-size: 24px; flex-shrink: 0; }
+        .room-name { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .room-count { font-size: 10px; color: var(--text-3); }
+        
+        .room-toggle {
+            width: 34px; height: 34px;
+            border-radius: 9px;
+            border: 2px solid var(--surface-2);
+            background: var(--surface-2);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .room-toggle:active { transform: scale(0.95); }
+        .room-toggle.on { background: var(--accent); border-color: var(--accent); color: #000; }
+        
+        /* LIGHTS IN ROOM */
+        .room-lights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        .light-tile {
+            background: var(--surface-2);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+            min-width: 0;
+        }
+        
+        .light-tile:active { transform: scale(0.97); }
+        .light-tile.on { background: var(--accent-dim); border-color: var(--accent); }
+        
+        .light-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+        
+        .light-icon { font-size: 20px; }
+        .light-btn-small {
+            width: 20px; height: 20px;
+            border-radius: 5px;
+            border: none;
+            background: var(--surface);
+            color: var(--text-3);
+            font-size: 9px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .light-tile.on .light-btn-small { background: var(--accent); color: #000; }
+        
+        .light-name {
+            font-size: 10px;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .light-control {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+        
+        .light-btn {
+            width: 24px; height: 24px;
+            border-radius: 6px;
+            border: none;
+            background: var(--surface);
+            color: var(--text-2);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .light-btn:active { transform: scale(0.9); }
+        
+        .light-slider-wrap {
+            flex: 1;
+            min-width: 0;
+            height: 24px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .light-slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: var(--surface);
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            margin: 0;
+        }
+        .light-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+        .light-tile.on .light-slider::-webkit-slider-thumb { background: var(--accent); }
+        
+        .light-level {
+            min-width: 28px;
+            text-align: right;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-2);
+            flex-shrink: 0;
+        }
+        .light-tile.on .light-level { color: var(--accent); }
+        
+        /* BLINDS SECTION */
+        .blinds-section {
+            grid-column: 1 / -1;
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 14px;
+            margin-top: 4px;
+        }
+        
+        .blinds-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .blinds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 8px;
+        }
+        
+        .blind-item {
+            background: var(--surface-2);
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        .blind-name { font-size: 11px; color: var(--text-2); margin-bottom: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        
+        .blind-control { display: flex; align-items: center; gap: 6px; overflow: hidden; }
+        
+        .blind-btn {
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            border: none;
+            background: var(--surface);
+            color: var(--text-2);
+            font-size: 12px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .blind-slider-wrap {
+            flex: 1;
+            min-width: 0;
+            height: 28px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blind-slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: var(--surface);
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            margin: 0;
+        }
+        .blind-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: var(--blue);
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+        
+        .blind-pos {
+            min-width: 32px;
+            text-align: right;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+        
+        /* STATUS BAR */
+        .status-bar {
+            padding: 10px 16px;
+            background: var(--surface);
+            border-top: 1px solid var(--surface-2);
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--text-3);
+            flex-shrink: 0;
+        }
+        
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 2px; }
+        
+        @media (max-width: 600px) {
+            .top-bar { grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
+            .time-card { grid-column: 1 / -1; }
+            .time-value { font-size: 32px; }
+            .main { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
+            .room-lights { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Conectando con Dirigera...</div>
-    </div>
-
-    <div class="error-toast" id="errorToast"></div>
-
-    <div class="container">
-        <header>
-            <div class="logo">
-                <div class="logo-icon">🏠</div>
-                <h1>HomeDashboard</h1>
+    <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Pantalla completa">⛶</button>
+    
+    <div class="top-bar">
+        <div class="time-card">
+            <div class="time-value" id="time">--:--</div>
+            <div class="time-date" id="date"></div>
+            <div class="time-weather" id="timeWeather">
+                <span class="time-weather-icon">⛅</span>
+                <span class="time-weather-temp" id="weatherTemp">--°</span>
+                <span class="time-weather-forecast" id="weatherForecast">Mañ: --</span>
             </div>
-            <div class="header-status">
-                <div class="status-badge">
-                    <div class="status-dot" id="statusDot"></div>
-                    <span id="statusText">Conectando...</span>
-                </div>
-                <button class="refresh-btn" id="refreshBtn" onclick="refreshAll()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/>
-                        <path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
-                    </svg>
-                    Actualizar
-                </button>
-            </div>
-        </header>
-
-        <div class="rooms-grid" id="roomsGrid">
-            <!-- Rooms will be populated dynamically -->
         </div>
-
-        <section class="monitoring-section" id="monitoringSection">
-            <div class="section-header">
-                <div class="section-icon">📊</div>
-                <h2 class="section-title">Monitoring</h2>
+        <div class="scenes-card">
+            <div class="scenes-title">Escenas</div>
+            <div class="scenes-grid">
+                <button class="scene-btn" onclick="setScene('relax', event)">☕</button>
+                <button class="scene-btn" onclick="setScene('movie', event)">🎬</button>
+                <button class="scene-btn" onclick="setScene('away', event)">🚶</button>
             </div>
-            <div class="charts-grid">
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <span class="chart-title">Switching Activity by Room</span>
-                        <span class="chart-subtitle">Last 7 days</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="roomSwitchChart"></canvas>
-                    </div>
-                </div>
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <span class="chart-title">Light Activity Pattern</span>
-                        <span class="chart-subtitle">Hourly switching events</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="hourlyActivityChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+        <div class="mode-card">
+            <div class="mode-label">Modo</div>
+            <div class="mode-value">CASA</div>
+        </div>
+    </div>
+    
+    <div class="news-ticker">
+        <span class="news-badge">News</span>
+        <div class="news-track">
+            <div class="news-content" id="newsContent"></div>
+        </div>
+    </div>
+    
+    <div class="main" id="main"></div>
+    
+    <div class="status-bar">
+        <span id="statusText">Cargando...</span>
+        <span id="lightsCount">0 luces encendidas</span>
     </div>
 
     <script>
-        const API_BASE = 'https://192.168.1.226:8443';
-        const TOKEN = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjBiOWQyMTZlODJmNzU4ZTlmMGEwNTE3ZDA4MzE2Y2I5MWM4OTlmMWMwZjE2MzFmODQ2YzE1Y2E4YTdhODJmZmMifQ.eyJpc3MiOiI2NTk1NDA4NS1kOGY4LTRjOTUtOTZiZi1mNGY0MDc4ODIyY2YiLCJ0eXBlIjoiYWNjZXNzIiwiYXVkIjoiaG9tZXNtYXJ0LmxvY2FsIiwic3ViIjoiOWMxNWNiNmMtNzRhNi00ZDJhLTk5MzAtMmFjMzY5Y2MzY2FjIiwiaWF0IjoxNzc0NzIzMjA2LCJleHAiOjIwOTAyOTkyMDZ9.mrFF36jF01Vs9LSMfcvAzUFZ1iNm0LeRH8NEEStLaBwGhzerUsPZQ2XPsfy74CStY1D20MYf1LGXJB4VTJCrlw';
-
-        let allDevices = [];
-        let refreshInterval;
-        let isRefreshing = false;
-
+        const API = 'http://192.168.1.172:9876/api';
+        const TOKEN = 'YOUR_TOKEN_HERE';
+        
+        let devices = [];
+        
         const ROOM_ICONS = {
-            'Salon': '🛋️',
-            'salon': '🛋️',
-            'Dormitorio': '🛏️',
-            'dormitorio': '🛏️',
-            'Habitacion': '🛏️',
-            'habitacion': '🛏️',
-            'Habitaciones': '🛏️',
-            'habitaciones': '🛏️',
-            'Baño': '🚿',
-            'baño': '🚿',
-            'banio': '🚿',
-            'Entrada': '🚪',
-            'entrada': '🚪',
-            'Despacho': '💼',
-            'despacho': '💼',
-            'Desvan': '📦',
-            'desvan': '📦',
-            'Cocina': '🍳',
-            'cocina': '🍳',
-            'default': '💡'
+            'Salón': '🛋️', 'Habitación': '🛏️', 'Baño': '🚿', 'Entrada': '🚪',
+            'Despacho': '💻', 'Desván': '🏠', 'Ducha': '🚿', 'Mary': '🛁',
+            'Escalera': '🪜', 'Estor': '🪟', 'Vestidor': '👔', 'Ender': '⚡'
         };
-
-        const roomOrder = ['Salon', 'Dormitorio', 'Habitaciones', 'Baño', 'Entrada', 'Despacho', 'Desvan'];
-
-        async function apiCall(endpoint, options = {}) {
-            const url = `${API_BASE}${endpoint}`;
-            const headers = {
-                'Authorization': `Bearer ${TOKEN}`,
-                'Content-Type': 'application/json',
-                ...options.headers
-            };
-
-            try {
-                const response = await fetch(url, { ...options, headers });
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-                return await response.json();
-            } catch (error) {
-                console.error('API Error:', error);
-                throw error;
-            }
-        }
-
-        function showError(message) {
-            const toast = document.getElementById('errorToast');
-            toast.textContent = message;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 5000);
-        }
-
-        function updateConnectionStatus(connected) {
-            const dot = document.getElementById('statusDot');
-            const text = document.getElementById('statusText');
-            
-            if (connected) {
-                dot.classList.remove('disconnected');
-                text.textContent = 'Conectado';
+        const ROOM_ORDER = ['Salón', 'Habitación', 'Baño', 'Ducha', 'Entrada', 'Despacho', 'Desván', 'Escalera', 'Vestidor', 'Mary', 'Ender'];
+        
+        // Fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
             } else {
-                dot.classList.add('disconnected');
-                text.textContent = 'Desconectado';
+                document.exitFullscreen();
             }
         }
-
-        function formatLastUpdate() {
+        
+        // Clock
+        function updateClock() {
             const now = new Date();
-            return now.toLocaleTimeString('es-ES', { 
-                hour: '2-digit', 
-                minute: '2-digit',
-                second: '2-digit'
-            });
+            document.getElementById('time').textContent = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('date').textContent = now.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
         }
-
-        async function fetchDevices() {
+        updateClock();
+        setInterval(updateClock, 1000);
+        
+        // Weather - As Pontes
+        async function loadWeather() {
             try {
-                const data = await apiCall('/api/v1/devices');
-                updateConnectionStatus(true);
-                return data || [];
-            } catch (error) {
-                updateConnectionStatus(false);
-                showError('Error al conectar con el hub Dirigera');
-                throw error;
-            }
-        }
-
-        function groupDevicesByRoom(devices) {
-            const rooms = {};
-            const blinds = { left: null, right: null };
-            const sensors = [];
-
-            devices.forEach(device => {
-                const type = device.type || '';
-                const capabilities = device.capabilities?.map(c => c.id) || [];
-                
-                if (type.includes('light') || capabilities.includes('light')) {
-                    const room = device.room?.name || 'Sin habitación';
-                    if (!rooms[room]) {
-                        rooms[room] = [];
-                    }
-                    rooms[room].push({ ...device, deviceType: 'light' });
+                const res = await fetch('https://wttr.in/As%20Pontes?format=j1');
+                const data = await res.json();
+                const current = data.current_condition[0];
+                const tomorrow = data.weather[1]?.hourly[4];
+                document.getElementById('weatherTemp').textContent = current.temp_C + '°C';
+                if (tomorrow) {
+                    document.getElementById('weatherForecast').textContent = 'Mañ: ' + getWeatherIcon(tomorrow.weatherCode) + ' ' + tomorrow.tempC + '°';
                 }
-                else if (type.includes('blinds') || type.includes('blind') || capabilities.includes('openable')) {
-                    const name = device.customName || device.name || '';
-                    if (name.toLowerCase().includes('izquierda') || name.toLowerCase().includes('left')) {
-                        blinds.left = { ...device, deviceType: 'blind' };
-                    } else if (name.toLowerCase().includes('derecha') || name.toLowerCase().includes('right')) {
-                        blinds.right = { ...device, deviceType: 'blind' };
-                    } else {
-                        if (!rooms['Persianas']) rooms['Persianas'] = [];
-                        rooms['Persianas'].push({ ...device, deviceType: 'blind' });
-                    }
-                }
-                else if (type.includes('motion') || type.includes('sensor')) {
-                    sensors.push({ ...device, deviceType: 'sensor' });
-                }
-            });
-
-            return { rooms, blinds, sensors };
+            } catch (e) { }
         }
-
-        function renderRoomCard(roomName, devices) {
-            const icon = ROOM_ICONS[roomName] || ROOM_ICONS.default;
-            const sortedDevices = [...devices].sort((a, b) => {
-                const nameA = a.customName || a.name || '';
-                const nameB = b.customName || b.name || '';
-                return nameA.localeCompare(nameB);
-            });
-
-            return `
-                <div class="room-card">
-                    <div class="room-header">
-                        <div class="room-icon">${icon}</div>
-                        <h2 class="room-name">${roomName}</h2>
-                        <span class="device-count">${devices.length}</span>
-                    </div>
-                    <div class="devices-list">
-                        ${sortedDevices.map(device => renderDevice(device)).join('')}
-                    </div>
-                </div>
-            `;
+        
+        function getWeatherIcon(code) {
+            if (code == 113) return '☀️';
+            if (code == 116) return '⛅';
+            if (code == 119 || code == 122) return '☁️';
+            if (code >= 127 && code <= 143) return '🌧️';
+            if (code >= 176 && code <= 263) return '🌧️';
+            if (code >= 266 && code <= 299) return '🌧️';
+            if (code >= 305 && code <= 386) return '🌧️';
+            if (code >= 389 && code <= 395) return '⛈️';
+            return '🌤️';
         }
-
-        function renderBlindsCard(blinds) {
-            const leftBlind = blinds.left;
-            const rightBlind = blinds.right;
-
-            if (!leftBlind && !rightBlind) return '';
-
-            return `
-                <div class="room-card">
-                    <div class="room-header">
-                        <div class="room-icon">🪟</div>
-                        <h2 class="room-name">Persianas</h2>
-                        <span class="device-count">${(leftBlind ? 1 : 0) + (rightBlind ? 1 : 0)}</span>
-                    </div>
-                    <div class="devices-list">
-                        ${leftBlind ? renderBlindDevice(leftBlind, 'Estor Izquierda') : ''}
-                        ${rightBlind ? renderBlindDevice(rightBlind, 'Estor Derecha') : ''}
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderSensorsCard(sensors) {
-            if (!sensors.length) return '';
-
-            return `
-                <div class="room-card">
-                    <div class="room-header">
-                        <div class="room-icon">📡</div>
-                        <h2 class="room-name">Sensores</h2>
-                        <span class="device-count">${sensors.length}</span>
-                    </div>
-                    <div class="devices-list">
-                        ${sensors.map(sensor => renderSensor(sensor)).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderDevice(device) {
-            const name = device.customName || device.name || 'Dispositivo';
-            const isOn = device.isOn || device.state?.isOn || false;
-            const brightness = device.dimmer?.lightLevel || device.state?.dimmer?.lightLevel || 0;
-            
-            return `
-                <div class="device-item ${isOn ? 'active' : ''}">
-                    <div class="device-icon">${isOn ? '💡' : '🔅'}</div>
-                    <div class="device-info">
-                        <div class="device-name">${name}</div>
-                        <div class="device-status">${isOn ? `Encendido · ${brightness}%` : 'Apagado'}</div>
-                    </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox" ${isOn ? 'checked' : ''} 
-                            onchange="toggleLight('${device.id}', ${!isOn})">
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-            `;
-        }
-
-        function renderBlindDevice(device, defaultName) {
-            const name = device.customName || device.name || defaultName;
-            const position = device.blinds?.lampPosition || device.state?.blinds?.lampPosition || 0;
-            const openLevel = 100 - position;
-
-            return `
-                <div class="device-item">
-                    <div class="device-icon">${position < 50 ? '🪟' : '⬛'}</div>
-                    <div class="device-info">
-                        <div class="device-name">${name}</div>
-                        <div class="device-status">${openLevel}% abierto</div>
-                    </div>
-                    <div class="blind-control">
-                        <div class="blind-slider-container">
-                            <input type="range" class="blind-slider" min="0" max="100" 
-                                value="${openLevel}" onchange="setBlindPosition('${device.id}', this.value)"
-                                oninput="updateBlindDisplay(this, '${device.id}')">
-                            <div class="blind-position" id="position-${device.id}">${openLevel}%</div>
-                        </div>
-                        <div class="blind-buttons">
-                            <button class="blind-btn" onclick="setBlindPosition('${device.id}', 0)">Abrir</button>
-                            <button class="blind-btn" onclick="setBlindPosition('${device.id}', 50)">50%</button>
-                            <button class="blind-btn" onclick="setBlindPosition('${device.id}', 100)">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderSensor(sensor) {
-            const name = sensor.customName || sensor.name || 'Sensor';
-            const isOn = sensor.isOn || sensor.state?.isOn || false;
-            const lastTriggered = sensor.lastTriggered || null;
-            
-            const battery = sensor.battery?.percentage || sensor.state?.battery?.percentage || null;
-            
-            let lastTriggeredText = 'Nunca';
-            if (lastTriggered) {
-                const date = new Date(lastTriggered);
-                const now = new Date();
-                const diff = Math.floor((now - date) / 1000);
-                
-                if (diff < 60) lastTriggeredText = 'Hace un momento';
-                else if (diff < 3600) lastTriggeredText = `Hace ${Math.floor(diff / 60)} min`;
-                else if (diff < 86400) lastTriggeredText = `Hace ${Math.floor(diff / 3600)} h`;
-                else lastTriggeredText = date.toLocaleDateString('es-ES');
-            }
-
-            return `
-                <div class="sensor-card ${isOn ? 'triggered' : ''}">
-                    <div class="device-icon">${isOn ? '🔔' : '📡'}</div>
-                    <div class="device-info">
-                        <div class="device-name">${name}</div>
-                        <div class="device-status">Último movimiento: ${lastTriggeredText}</div>
-                    </div>
-                    <div class="sensor-status ${isOn ? 'active' : 'inactive'}">
-                        ${isOn ? '● Activo' : '○ Inactivo'}
-                    </div>
-                    ${battery !== null ? `
-                        <div class="battery-indicator">
-                            <span>🔋</span>${battery}%
-                        </div>
-                    ` : ''}
-                </div>
-            `;
-        }
-
-        function updateBlindDisplay(slider, deviceId) {
-            const positionEl = document.getElementById(`position-${deviceId}`);
-            if (positionEl) {
-                positionEl.textContent = `${slider.value}%`;
-            }
-        }
-
-        async function toggleLight(deviceId, turnOn) {
-            try {
-                await apiCall(`/api/v1/devices/${deviceId}/actions`, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        action: 'setLight',
-                        lightLevel: turnOn ? 100 : 0,
-                        isOn: turnOn
-                    })
+        
+        loadWeather();
+        setInterval(loadWeather, 300000);
+        
+        // News Feed
+        const NEWS_ITEMS = [
+            '<span>IA:</span> GPT-5 esperado para junio con razonamiento avanzado',
+            '<span>Tech:</span> Apple presenta nuevos chips M4 para Mac',
+            '<span>Cycling:</span> Pogacar gana otra etapa en el Tour',
+            '<span>Spain:</span> El INE confirma crecimiento del PIB',
+            '<span>AI:</span> Gemini 2.0 disponible con modo agente',
+            '<span>Gaming:</span> GTA VI filtrado: primavera 2026',
+            '<span>IA:</span> Claude Code supera 1M de desarrolladores',
+            '<span>Tech:</span> Samsung lanza pantalla enrollable para 2026',
+            '<span>Cycling:</span> Vingegaard se recupera para el Tour',
+            '<span>AI:</span> OpenAI lanza API para agentes autonomousos',
+            '<span>Spain:</span> Galicia: tempo estable toda a semana',
+            '<span>Tech:</span> Elon Musk presenta Grok 3 con razonamento visual'
+        ];
+        
+        function loadNews() {
+            let html = '';
+            // Duplicate for seamless loop
+            for (let i = 0; i < 3; i++) {
+                NEWS_ITEMS.forEach(item => {
+                    html += '<span class="news-item">' + item + '</span>';
                 });
-                setTimeout(refreshAll, 300);
-            } catch (error) {
-                showError('Error al cambiar el estado de la luz');
             }
+            document.getElementById('newsContent').innerHTML = html;
         }
-
-        let blindTimeout = {};
-        function setBlindPosition(deviceId, position) {
-            if (blindTimeout[deviceId]) {
-                clearTimeout(blindTimeout[deviceId]);
-            }
-            
-            blindTimeout[deviceId] = setTimeout(async () => {
-                try {
-                    const closeAmount = parseInt(position);
-                    await apiCall(`/api/v1/devices/${deviceId}/actions`, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            action: 'setBlinds',
-                            blindsLampPosition: closeAmount
-                        })
-                    });
-                    setTimeout(refreshAll, 300);
-                } catch (error) {
-                    showError('Error al mover la persiana');
-                }
-            }, 300);
-        }
-
-        async function refreshAll() {
-            if (isRefreshing) return;
-            
-            isRefreshing = true;
-            const btn = document.getElementById('refreshBtn');
-            btn.classList.add('loading');
-            
+        loadNews();
+        
+        async function apiCall(endpoint, method, body) {
             try {
-                allDevices = await fetchDevices();
-                renderDashboard(allDevices);
-            } catch (error) {
-                console.error('Refresh error:', error);
-            } finally {
-                isRefreshing = false;
-                btn.classList.remove('loading');
-                document.getElementById('statusText').textContent = `Actualizado ${formatLastUpdate()}`;
+                const opts = { method, headers: { 'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/json' } };
+                if (body) opts.body = JSON.stringify(body);
+                const res = await fetch(API + endpoint, opts);
+                return await res.json();
+            } catch (e) { return null; }
+        }
+        
+        async function loadDevices() {
+            document.getElementById('statusText').textContent = 'Conectando...';
+            const data = await apiCall('/v1/devices', 'GET');
+            if (data && Array.isArray(data)) {
+                devices = data;
+                document.getElementById('statusText').textContent = '✓ Conectado';
+                renderUI();
+            } else {
+                document.getElementById('statusText').textContent = '✗ Error';
             }
         }
-
-        function renderDashboard(devices) {
-            const { rooms, blinds, sensors } = groupDevicesByRoom(devices);
-            const grid = document.getElementById('roomsGrid');
+        
+        function getRoom(name) {
+            const n = name.toLowerCase();
+            // Salon / Living
+            if (n.includes('salon') || n.includes('living')) return 'Salón';
+            // Habitaciones
+            if (n.includes('habitacion') || n.includes('habitacion')) return 'Habitación';
+            // Baño
+            if (n.includes('baño')) return 'Baño';
+            // Ducha
+            if (n.includes('ducha')) return 'Ducha';
+            // Entrada
+            if (n.includes('entrada')) return 'Entrada';
+            // Despacho
+            if (n.includes('despacho')) return 'Despacho';
+            // Desván
+            if (n.includes('desvan')) return 'Desván';
+            // Escalera
+            if (n.includes('escalera')) return 'Escalera';
+            // Estor
+            if (n.includes('estor')) return 'Estor';
+            // Vestidor
+            if (n.includes('vestidor')) return 'Vestidor';
+            // Mary
+            if (n.includes('mary')) return 'Mary';
+            // Ender (solo si realmente es Ender)
+            if (n.includes('ender') && !n.includes('salon') && !n.includes('salón')) return 'Ender';
+            // Salon con o sin tilde
+            if (n.includes('salon') || n.includes('salón')) return 'Salón';
+            return 'Ender';
+        }
+        
+        function getLightIcon(name) {
+            const n = name.toLowerCase();
+            if (n.includes('techo')) return '💡';
+            if (n.includes('mesa')) return '🪫';
+            if (n.includes('pared')) return '🔦';
+            if (n.includes('lampara')) return '🔆';
+            return '💡';
+        }
+        
+        async function toggleLight(id, isOn) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) { dev.attributes.isOn = isOn; renderUI(); }
+            await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { isOn } }]);
+        }
+        
+        async function setLightLevel(id, level) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) {
+                dev.attributes.isOn = true;
+                dev.attributes.lightLevel = parseInt(level);
+                renderUI();
+                await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { isOn: true } }]);
+                await new Promise(r => setTimeout(r, 100));
+                await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { lightLevel: parseInt(level) } }]);
+            }
+        }
+        
+        async function adjustLevel(id, delta) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) {
+                const current = dev.attributes.lightLevel || 100;
+                const newLevel = Math.max(1, Math.min(100, current + delta));
+                await setLightLevel(id, newLevel);
+            }
+        }
+        
+        async function toggleRoom(roomName) {
+            const roomDevices = devices.filter(d => {
+                const name = d.attributes?.customName || d.attributes?.name || '';
+                return getRoom(name) === roomName && (d.type === 'light' || d.type === 'lamp');
+            });
+            const anyOn = roomDevices.some(d => d.attributes?.isOn);
+            const newState = !anyOn;
+            for (const dev of roomDevices) {
+                dev.attributes.isOn = newState;
+                await apiCall('/v1/devices/' + dev.id, 'PATCH', [{ attributes: { isOn: newState } }]);
+            }
+            renderUI();
+        }
+        
+        async function setBlind(id, pos) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) { dev.attributes.currentPosition = parseInt(pos); renderUI(); }
+            await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { currentPosition: parseInt(pos) } }]);
+        }
+        
+        async function setScene(scene, e) {
+            if (e) e.stopPropagation();
+            document.querySelectorAll('.scene-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (scene === 'relax') {
+                devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
+                    d.attributes.isOn = true;
+                    d.attributes.lightLevel = 30;
+                    apiCall('/v1/devices/' + d.id, 'PATCH', [{ attributes: { isOn: true, lightLevel: 30 } }]);
+                });
+            } else if (scene === 'away') {
+                devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
+                    d.attributes.isOn = false;
+                    apiCall('/v1/devices/' + d.id, 'PATCH', [{ attributes: { isOn: false } }]);
+                });
+            }
+            renderUI();
+        }
+        
+        function renderUI() {
+            const rooms = {};
+            const blinds = [];
+            
+            devices.forEach(d => {
+                const type = d.type || '';
+                const name = d.attributes?.customName || d.attributes?.name || '?';
+                const room = getRoom(name);
+                if (type === 'light' || type === 'lamp') {
+                    if (!rooms[room]) rooms[room] = [];
+                    rooms[room].push({ ...d, name });
+                } else if (type.includes('blinds') || type.includes('blind')) {
+                    blinds.push({ ...d, name });
+                }
+            });
             
             let html = '';
-            
-            roomOrder.forEach(roomName => {
-                if (rooms[roomName] && rooms[roomName].length > 0) {
-                    html += renderRoomCard(roomName, rooms[roomName]);
-                }
-            });
-            
-            Object.keys(rooms).forEach(roomName => {
-                if (!roomOrder.includes(roomName) && rooms[roomName].length > 0) {
-                    html += renderRoomCard(roomName, rooms[roomName]);
-                }
-            });
-            
-            html += renderBlindsCard(blinds);
-            html += renderSensorsCard(sensors);
-            
-            if (!html) {
-                html = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                        <p>No se encontraron dispositivos</p>
-                        <p style="font-size: 0.875rem; margin-top: 8px;">Conecta tu hub Dirigera para comenzar</p>
-                    </div>
-                `;
-            }
-            
-            grid.innerHTML = html;
-        }
-
-        async function init() {
-            try {
-                allDevices = await fetchDevices();
-                document.getElementById('loadingOverlay').classList.add('hidden');
-                renderDashboard(allDevices);
+            ROOM_ORDER.forEach(room => {
+                if (!rooms[room]) return;
+                const lights = rooms[room];
+                const onCount = lights.filter(l => l.attributes?.isOn).length;
+                const hasOn = onCount > 0;
+                const icon = ROOM_ICONS[room] || '🏠';
                 
-                refreshInterval = setInterval(refreshAll, 5000);
-            } catch (error) {
-                document.getElementById('loadingOverlay').classList.add('hidden');
-                showError('No se pudo conectar con el hub. Intenta de nuevo.');
-            }
-        }
-
-        init();
-
-        // Monitoring Charts
-        let roomSwitchChart = null;
-        let hourlyActivityChart = null;
-
-        async function loadMonitoringData() {
-            try {
-                const response = await fetch('monitoring_data.json');
-                if (!response.ok) throw new Error('Failed to load monitoring data');
-                return await response.json();
-            } catch (error) {
-                console.error('Error loading monitoring data:', error);
-                return null;
-            }
-        }
-
-        function getLast7Days() {
-            const days = [];
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date();
-                date.setDate(date.getDate() - i);
-                days.push(date.toISOString().split('T')[0]);
-            }
-            return days;
-        }
-
-        function initMonitoringCharts(data) {
-            const last7Days = getLast7Days();
-
-            // Prepare room switch data for last 7 days
-            const roomSwitches = {};
-            last7Days.forEach(day => {
-                if (data.daily && data.daily[day] && data.daily[day].rooms) {
-                    Object.entries(data.daily[day].rooms).forEach(([room, stats]) => {
-                        if (!roomSwitches[room]) roomSwitches[room] = new Array(7).fill(0);
-                        const dayIndex = last7Days.indexOf(day);
-                        if (dayIndex !== -1) {
-                            roomSwitches[room][dayIndex] = stats.switch_count || 0;
-                        }
-                    });
-                }
-            });
-
-            // Prepare hourly activity from events
-            const hourlyActivity = new Array(24).fill(0);
-            if (data.events) {
-                data.events.forEach(event => {
-                    const hour = new Date(event.timestamp).getHours();
-                    hourlyActivity[hour]++;
+                html += '<div class="room-card' + (hasOn ? ' has-on' : '') + '">';
+                html += '<div class="room-header">';
+                html += '<div class="room-info">';
+                html += '<span class="room-icon">' + icon + '</span>';
+                html += '<div>';
+                html += '<div class="room-name">' + room + '</div>';
+                html += '<div class="room-count">' + onCount + ' / ' + lights.length + ' on</div>';
+                html += '</div></div>';
+                html += '<button class="room-toggle' + (hasOn ? ' on' : '') + '" onclick="toggleRoom(\'' + room + '\')">' + (hasOn ? '⭕' : '✅') + '</button>';
+                html += '</div>';
+                html += '<div class="room-lights">';
+                
+                lights.forEach(l => {
+                    const isOn = l.attributes?.isOn;
+                    const level = l.attributes?.lightLevel || 100;
+                    
+                    html += '<div class="light-tile' + (isOn ? ' on' : '') + '" onclick="toggleLight(\'' + l.id + '\', ' + !isOn + ')">';
+                    html += '<div class="light-top">';
+                    html += '<span class="light-icon">' + getLightIcon(l.name) + '</span>';
+                    html += '<button class="light-btn-small" onclick="event.stopPropagation(); toggleLight(\'' + l.id + '\', ' + !isOn + ')">' + (isOn ? '🔴' : '⚫') + '</button>';
+                    html += '</div>';
+                    html += '<div class="light-name">' + l.name.split(' ').slice(1).join(' ') + '</div>';
+                    html += '<div class="light-control" onclick="event.stopPropagation()">';
+                    html += '<button class="light-btn" onclick="adjustLevel(\'' + l.id + '\', -10)">−</button>';
+                    html += '<div class="light-slider-wrap"><input type="range" class="light-slider" min="1" max="100" value="' + level + '" oninput="setLightLevel(\'' + l.id + '\', this.value)"></div>';
+                    html += '<button class="light-btn" onclick="adjustLevel(\'' + l.id + '\', 10)">+</button>';
+                    html += '<span class="light-level">' + level + '%</span>';
+                    html += '</div></div>';
                 });
+                
+                html += '</div></div>';
+            });
+            
+            if (blinds.length) {
+                html += '<div class="blinds-section">';
+                html += '<div class="blinds-title">🪟 Persianas</div>';
+                html += '<div class="blinds-grid">';
+                blinds.forEach(b => {
+                    const pos = b.attributes?.currentPosition || 0;
+                    html += '<div class="blind-item">';
+                    html += '<div class="blind-name">' + b.name + '</div>';
+                    html += '<div class="blind-control">';
+                    html += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 0)">▼</button>';
+                    html += '<div class="blind-slider-wrap"><input type="range" class="blind-slider" min="0" max="100" value="' + pos + '" oninput="setBlind(\'' + b.id + '\', this.value)"></div>';
+                    html += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 100)">▲</button>';
+                    html += '<span class="blind-pos">' + pos + '%</span>';
+                    html += '</div></div>';
+                });
+                html += '</div></div>';
             }
-
-            // Room Switch Chart (Bar)
-            const roomCtx = document.getElementById('roomSwitchChart').getContext('2d');
-            const roomColors = [
-                'rgba(0, 212, 170, 0.8)',
-                'rgba(124, 58, 237, 0.8)',
-                'rgba(8, 145, 178, 0.8)',
-                'rgba(245, 158, 11, 0.8)',
-                'rgba(34, 197, 94, 0.8)',
-                'rgba(239, 68, 68, 0.8)',
-                'rgba(168, 85, 247, 0.8)'
-            ];
-
-            const roomNames = Object.keys(roomSwitches);
-            const datasets = roomNames.map((room, i) => ({
-                label: room,
-                data: roomSwitches[room],
-                backgroundColor: roomColors[i % roomColors.length],
-                borderRadius: 6,
-                borderSkipped: false
-            }));
-
-            roomSwitchChart = new Chart(roomCtx, {
-                type: 'bar',
-                data: {
-                    labels: last7Days.map(d => {
-                        const date = new Date(d);
-                        return date.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
-                    }),
-                    datasets: datasets
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#8888a0',
-                                font: { family: 'Outfit', size: 11 },
-                                padding: 15,
-                                usePointStyle: true,
-                                pointStyle: 'circle'
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(18, 18, 26, 0.95)',
-                            titleColor: '#f0f0f5',
-                            bodyColor: '#8888a0',
-                            borderColor: 'rgba(255, 255, 255, 0.08)',
-                            borderWidth: 1,
-                            padding: 12,
-                            cornerRadius: 8,
-                            titleFont: { family: 'Outfit', weight: '500' },
-                            bodyFont: { family: 'Outfit' }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            ticks: {
-                                color: '#8888a0',
-                                font: { family: 'Outfit', size: 11 }
-                            }
-                        },
-                        y: {
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: {
-                                color: '#8888a0',
-                                font: { family: 'Outfit', size: 11 }
-                            },
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-
-            // Hourly Activity Chart (Line)
-            const hourlyCtx = document.getElementById('hourlyActivityChart').getContext('2d');
-
-            hourlyActivityChart = new Chart(hourlyCtx, {
-                type: 'line',
-                data: {
-                    labels: Array.from({ length: 24 }, (_, i) => `${i}:00`),
-                    datasets: [{
-                        label: 'Switch Events',
-                        data: hourlyActivity,
-                        borderColor: '#00d4aa',
-                        backgroundColor: 'rgba(0, 212, 170, 0.1)',
-                        fill: true,
-                        tension: 0.4,
-                        pointRadius: 4,
-                        pointHoverRadius: 6,
-                        pointBackgroundColor: '#00d4aa',
-                        pointBorderColor: '#12121a',
-                        pointBorderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(18, 18, 26, 0.95)',
-                            titleColor: '#f0f0f5',
-                            bodyColor: '#8888a0',
-                            borderColor: 'rgba(255, 255, 255, 0.08)',
-                            borderWidth: 1,
-                            padding: 12,
-                            cornerRadius: 8,
-                            titleFont: { family: 'Outfit', weight: '500' },
-                            bodyFont: { family: 'Outfit' }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            ticks: {
-                                color: '#8888a0',
-                                font: { family: 'Outfit', size: 10 },
-                                maxTicksLimit: 12
-                            }
-                        },
-                        y: {
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: {
-                                color: '#8888a0',
-                                font: { family: 'Outfit', size: 11 }
-                            },
-                            beginAtZero: true
-                        }
-                    },
-                    interaction: {
-                        intersect: false,
-                        mode: 'index'
-                    }
-                }
-            });
+            
+            document.getElementById('main').innerHTML = html;
+            
+            const allLights = Object.values(rooms).flat();
+            const totalOn = allLights.filter(l => l.attributes?.isOn).length;
+            document.getElementById('lightsCount').textContent = totalOn + ' luces encendidas';
         }
-
-        // Load monitoring charts after page load
-        setTimeout(async () => {
-            const monitoringData = await loadMonitoringData();
-            if (monitoringData) {
-                initMonitoringCharts(monitoringData);
-            }
-        }, 500);
+        
+        loadDevices();
+        setInterval(loadDevices, 5000);
     </script>
 </body>
 </html>
