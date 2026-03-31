@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>🏠 Mi Casa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a24;
+            --accent-primary: #00d4aa;
+            --accent-secondary: #7c3aed;
+            --accent-gradient: linear-gradient(135deg, #00d4aa 0%, #0891b2 50%, #7c3aed 100%);
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555566;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .fullscreen-btn {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fullscreen-btn:hover { background: rgba(255, 255, 255, 0.1); color: var(--text-primary); }
+        .fullscreen-btn:active { transform: scale(0.95); }
+
+        .time-card {
+            background: var(--accent-gradient);
+            border-radius: 20px;
+            padding: 14px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
+        }
+
+        .time-value { font-size: 36px; font-weight: 700; letter-spacing: -2px; }
+        .time-date { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+
+        .time-weather {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .time-weather-icon { font-size: 20px; }
+        .time-weather-temp { font-weight: 600; }
+        .time-weather-forecast { font-size: 11px; opacity: 0.8; margin-left: 8px; }
+
+        .scenes-card {
+            background: rgba(124, 58, 237, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: 20px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .scenes-title { font-size: 10px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+
+        .scenes-grid { display: flex; gap: 6px; flex: 1; align-items: center; }
+
+        .scene-btn {
+            flex: 1;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scene-btn:hover { background: rgba(255, 255, 255, 0.15); }
+        .scene-btn:active { transform: scale(0.95); }
+        .scene-btn.active { background: var(--accent-primary); color: #000; border-color: var(--accent-primary); box-shadow: 0 0 20px rgba(0, 212, 170, 0.5); }
+
+        .mode-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mode-label { font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+        .mode-value { font-size: 20px; font-weight: 700; margin-top: 6px; color: var(--accent-primary); }
+
+        /* NEWS TICKER */
+        .news-ticker {
+            background: rgba(18, 18, 26, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .news-badge {
+            background: var(--error);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .news-track {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-content {
+            display: flex;
+            gap: 40px;
+            animation: ticker 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .news-content:hover { animation-play-state: paused; }
+
+        .news-item {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .news-item span {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* MAIN - ROOMS GRID */
+        .main {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            align-content: start;
+        }
+
+        /* ROOM CARD - Glassmorphism */
+        .room-card {
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            min-width: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .room-card:hover {
+            background: rgba(26, 26, 36, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .room-card.has-on {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.15);
+        }
+
+        .room-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            min-width: 0;
+        }
+
+        .room-info { display: flex; align-items: center; gap: 12px; min-width: 0; }
+        .room-icon { font-size: 28px; flex-shrink: 0; }
+        .room-name { font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .room-count { font-size: 11px; color: var(--text-muted); }
+
+        .room-toggle {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+        }
+        .room-toggle:hover { background: rgba(255, 255, 255, 0.1); }
+        .room-toggle:active { transform: scale(0.95); }
+        .room-toggle.on {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
+        }
+
+        /* LIGHTS IN ROOM */
+        .room-lights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .light-tile {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid transparent;
+            border-radius: 14px;
+            padding: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            min-width: 0;
+        }
+
+        .light-tile:hover { background: rgba(255, 255, 255, 0.06); }
+        .light-tile:active { transform: scale(0.97); }
+        .light-tile.on {
+            background: rgba(0, 212, 170, 0.1);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.2);
+        }
+
+        .light-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .light-icon { font-size: 24px; }
+        .light-btn-small {
+            width: 24px; height: 24px;
+            border-radius: 6px;
+            border: none;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            font-size: 10px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .light-btn-small:hover { background: rgba(255, 255, 255, 0.15); }
+        .light-tile.on .light-btn-small {
+            background: var(--accent-primary);
+            color: #000;
+        }
+
+        .light-name {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 10px;
+        }
+        .light-tile.on .light-name { color: var(--text-primary); }
+
+        .light-control {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .light-btn {
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .light-btn:hover { background: rgba(255, 255, 255, 0.15); color: var(--text-primary); }
+        .light-btn:active { transform: scale(0.9); }
+
+        .light-slider-wrap {
+            flex: 1;
+            min-width: 0;
+            height: 28px;
+            display: flex;
+            align-items: center;
+        }
+
+        .light-slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            margin: 0;
+        }
+        .light-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: var(--text-secondary);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s;
+        }
+        .light-tile.on .light-slider::-webkit-slider-thumb {
+            background: var(--accent-primary);
+            box-shadow: 0 0 10px rgba(0, 212, 170, 0.5);
+        }
+
+        .light-level {
+            min-width: 32px;
+            text-align: right;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+        .light-tile.on .light-level { color: var(--accent-primary); }
+
+        /* SENSOR CARD */
+        .sensor-card {
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sensor-icon { font-size: 28px; flex-shrink: 0; }
+        .sensor-info { flex: 1; min-width: 0; }
+        .sensor-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+        .sensor-meta { font-size: 11px; color: var(--text-muted); }
+        .sensor-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .sensor-badge.active { background: rgba(34, 197, 94, 0.2); color: var(--success); }
+        .sensor-badge.inactive { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); }
+
+        /* BLINDS SECTION */
+        .blinds-section {
+            grid-column: 1 / -1;
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            margin-top: 4px;
+        }
+
+        .blinds-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blinds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .blind-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            transition: all 0.2s;
+        }
+        .blind-item:hover { background: rgba(255, 255, 255, 0.06); }
+
+        .blind-name { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        .blind-control { display: flex; align-items: center; gap: 8px; }
+
+        .blind-btn {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .blind-btn:hover { background: rgba(255, 255, 255, 0.15); color: var(--text-primary); }
+        .blind-btn:active { transform: scale(0.9); }
+
+        .blind-slider-wrap {
+            flex: 1;
+            min-width: 0;
+            height: 32px;
+            display: flex;
+            align-items: center;
+        }
+
+        .blind-slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            margin: 0;
+        }
+        .blind-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: var(--accent-secondary);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.5);
+        }
+
+        .blind-pos {
+            min-width: 38px;
+            text-align: right;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            flex-shrink: 0;
+        }
+
+        /* SENSORS SECTION */
+        .sensors-section {
+            grid-column: 1 / -1;
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            margin-top: 4px;
+        }
+
+        .sensors-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sensors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        /* STATUS BAR */
+        .status-bar {
+            padding: 12px 16px;
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .status-bar .connected { color: var(--accent-primary); }
+        .status-bar .error { color: var(--error); }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .top-bar { grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; }
+            .time-card { grid-column: 1 / -1; }
+            .time-value { font-size: 32px; }
+            .main { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 12px; }
+            .room-lights { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar { grid-template-columns: 1fr; }
+            .scenes-card { flex-direction: row; align-items: center; }
+            .scenes-title { display: none; }
+            .main { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Pantalla completa">⛶</button>
+
+    <div class="top-bar">
+        <div class="time-card">
+            <div class="time-value" id="time">--:--</div>
+            <div class="time-date" id="date"></div>
+            <div class="time-weather" id="timeWeather">
+                <span class="time-weather-icon">⛅</span>
+                <span class="time-weather-temp" id="weatherTemp">--°</span>
+                <span class="time-weather-forecast" id="weatherForecast">Mañ: --</span>
+            </div>
+        </div>
+        <div class="scenes-card">
+            <div class="scenes-title">Escenas</div>
+            <div class="scenes-grid">
+                <button class="scene-btn" onclick="setScene('relax', event)" title="Relajado">☕</button>
+                <button class="scene-btn" onclick="setScene('movie', event)" title="Película">🎬</button>
+                <button class="scene-btn" onclick="setScene('away', event)" title="Fuera">🚶</button>
+            </div>
+        </div>
+        <div class="mode-card">
+            <div class="mode-label">Modo</div>
+            <div class="mode-value" id="modeValue">CASA</div>
+        </div>
+    </div>
+
+    <div class="news-ticker">
+        <span class="news-badge">News</span>
+        <div class="news-track">
+            <div class="news-content" id="newsContent"></div>
+        </div>
+    </div>
+
+    <div class="main" id="main"></div>
+
+    <div class="status-bar">
+        <span id="statusText">Cargando...</span>
+        <span id="lightsCount">0 luces encendidas</span>
+    </div>
+
+    <script>
+        const API = 'https://192.168.1.226:8443';
+        const TOKEN = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjBiOWQyMTZlODJmNzU4ZTlmMGEwNTE3ZDA4MzE2Y2I5MWM4OTlmMWMwZjE2MzFmODQ2YzE1Y2E4YTdhODJmZmMifQ.eyJpc3MiOiI2NTk1NDA4NS1kOGY4LTRjOTUtOTZiZi1mNGY0MDc4ODIyY2YiLCJ0eXBlIjoiYWNjZXNzIiwiYXVkIjoiaG9tZXNtYXJ0LmxvY2FsIiwic3ViIjoiOWMxNWNiNmMtNzRhNi00ZDJhLTk5MzAtMmFjMzY5Y2MzY2FjIiwiaWF0IjoxNzc0NzIzMjA2LCJleHAiOjIwOTAyOTkyMDZ9.mrFF36jF01Vs9LSMfcvAzUFZ1iNm0LeRH8NEEStLaBwGhzerUsPZQ2XPsfy74CStY1D20MYf1LGXJB4VTJCrlw';
+
+        let devices = [];
+        let activeScene = null;
+
+        const ROOM_ICONS = {
+            'Salón': '🛋️', 'Habitación': '🛏️', 'Baño': '🚿', 'Entrada': '🚪',
+            'Despacho': '💻', 'Desván': '🏠', 'Ducha': '🚿', 'Mary': '🛁',
+            'Escalera': '🪜', 'Estor': '🪟', 'Vestidor': '👔', 'Ender': '⚡'
+        };
+        const ROOM_ORDER = ['Salón', 'Habitación', 'Baño', 'Ducha', 'Entrada', 'Despacho', 'Desván', 'Escalera', 'Vestidor', 'Mary', 'Ender'];
+
+        // Fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('time').textContent = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('date').textContent = now.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Weather - As Pontes
+        async function loadWeather() {
+            try {
+                const res = await fetch('https://wttr.in/As%20Pontes?format=j1');
+                const data = await res.json();
+                const current = data.current_condition[0];
+                const tomorrow = data.weather[1]?.hourly[4];
+                document.getElementById('weatherTemp').textContent = current.temp_C + '°C';
+                if (tomorrow) {
+                    document.getElementById('weatherForecast').textContent = 'Mañ: ' + getWeatherIcon(tomorrow.weatherCode) + ' ' + tomorrow.tempC + '°';
+                }
+            } catch (e) { }
+        }
+
+        function getWeatherIcon(code) {
+            if (code == 113) return '☀️';
+            if (code == 116) return '⛅';
+            if (code == 119 || code == 122) return '☁️';
+            if (code >= 127 && code <= 143) return '🌧️';
+            if (code >= 176 && code <= 263) return '🌧️';
+            if (code >= 266 && code <= 299) return '🌧️';
+            if (code >= 305 && code <= 386) return '🌧️';
+            if (code >= 389 && code <= 395) return '⛈️';
+            return '🌤️';
+        }
+
+        loadWeather();
+        setInterval(loadWeather, 300000);
+
+        // News Feed
+        const NEWS_ITEMS = [
+            '<span>IA:</span> GPT-5 esperado para junio con razonamiento avanzado',
+            '<span>Tech:</span> Apple presenta nuevos chips M4 para Mac',
+            '<span>Cycling:</span> Pogacar gana otra etapa en el Tour',
+            '<span>Spain:</span> El INE confirma crecimiento del PIB',
+            '<span>AI:</span> Gemini 2.0 disponible con modo agente',
+            '<span>Gaming:</span> GTA VI filtrado: primavera 2026',
+            '<span>IA:</span> Claude Code supera 1M de desarrolladores',
+            '<span>Tech:</span> Samsung lanza pantalla enrollable para 2026',
+            '<span>Cycling:</span> Vingegaard se recupera para el Tour',
+            '<span>AI:</span> OpenAI lanza API para agentes autonomousos',
+            '<span>Spain:</span> Galicia: tempo estable toda a semana',
+            '<span>Tech:</span> Elon Musk presenta Grok 3 con razonamento visual'
+        ];
+
+        function loadNews() {
+            let html = '';
+            for (let i = 0; i < 3; i++) {
+                NEWS_ITEMS.forEach(item => {
+                    html += '<span class="news-item">' + item + '</span>';
+                });
+            }
+            document.getElementById('newsContent').innerHTML = html;
+        }
+        loadNews();
+
+        async function apiCall(endpoint, method, body) {
+            try {
+                const opts = { method, headers: { 'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/json' } };
+                if (body) opts.body = JSON.stringify(body);
+                const res = await fetch(API + endpoint, opts);
+                return await res.json();
+            } catch (e) { return null; }
+        }
+
+        async function loadDevices() {
+            const statusEl = document.getElementById('statusText');
+            statusEl.textContent = 'Conectando...';
+            statusEl.className = '';
+            const data = await apiCall('/api/v1/devices');
+            if (data && Array.isArray(data)) {
+                devices = data;
+                statusEl.textContent = '✓ Conectado';
+                statusEl.className = 'connected';
+                renderUI();
+            } else {
+                statusEl.textContent = '✗ Error de conexión';
+                statusEl.className = 'error';
+            }
+        }
+
+        function getRoom(name) {
+            const n = name.toLowerCase();
+            if (n.includes('salon') || n.includes('salón') || n.includes('living')) return 'Salón';
+            if (n.includes('habitacion') || n.includes('habit')) return 'Habitación';
+            if (n.includes('baño') || n.includes('bano')) return 'Baño';
+            if (n.includes('ducha')) return 'Ducha';
+            if (n.includes('entrada')) return 'Entrada';
+            if (n.includes('despacho')) return 'Despacho';
+            if (n.includes('desvan') || n.includes('desván')) return 'Desván';
+            if (n.includes('escalera')) return 'Escalera';
+            if (n.includes('estor')) return 'Estor';
+            if (n.includes('vestidor')) return 'Vestidor';
+            if (n.includes('mary')) return 'Mary';
+            if (n.includes('ender') && !n.includes('salon') && !n.includes('salón')) return 'Ender';
+            return 'Ender';
+        }
+
+        function getLightIcon(name) {
+            const n = name.toLowerCase();
+            if (n.includes('techo')) return '💡';
+            if (n.includes('mesa')) return '🪫';
+            if (n.includes('pared')) return '🔦';
+            if (n.includes('lampara')) return '🔆';
+            return '💡';
+        }
+
+        function formatLastMotion(isoString) {
+            if (!isoString) return 'Nunca';
+            const date = new Date(isoString);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            if (diffMins < 1) return 'Ahora';
+            if (diffMins < 60) return `Hace ${diffMins}m`;
+            const diffHours = Math.floor(diffMins / 60);
+            if (diffHours < 24) return `Hace ${diffHours}h`;
+            return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+        }
+
+        async function toggleLight(id, isOn) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) { dev.attributes.isOn = isOn; renderUI(); }
+            await apiCall('/api/v1/devices/' + id + '/actions', 'POST', { action: 'set', attributes: { isOn } });
+        }
+
+        async function setLightLevel(id, level) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) {
+                dev.attributes.isOn = true;
+                dev.attributes.lightLevel = parseInt(level);
+                renderUI();
+                await apiCall('/api/v1/devices/' + id + '/actions', 'POST', { action: 'set', attributes: { isOn: true, lightLevel: parseInt(level) } });
+            }
+        }
+
+        async function adjustLevel(id, delta) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) {
+                const current = dev.attributes.lightLevel || 100;
+                const newLevel = Math.max(1, Math.min(100, current + delta));
+                await setLightLevel(id, newLevel);
+            }
+        }
+
+        async function toggleRoom(roomName) {
+            const roomDevices = devices.filter(d => {
+                const name = d.attributes?.customName || d.attributes?.name || '';
+                return getRoom(name) === roomName && (d.type === 'light' || d.type === 'lamp');
+            });
+            const anyOn = roomDevices.some(d => d.attributes?.isOn);
+            const newState = !anyOn;
+            for (const dev of roomDevices) {
+                dev.attributes.isOn = newState;
+                await apiCall('/api/v1/devices/' + dev.id + '/actions', 'POST', { action: 'set', attributes: { isOn: newState } });
+            }
+            renderUI();
+        }
+
+        async function setBlind(id, pos) {
+            const dev = devices.find(d => d.id === id);
+            if (dev) { dev.attributes.currentPosition = parseInt(pos); renderUI(); }
+            await apiCall('/api/v1/devices/' + id + '/actions', 'POST', { action: 'set', attributes: { currentPosition: parseInt(pos) } });
+        }
+
+        async function setScene(scene, e) {
+            if (e) e.stopPropagation();
+
+            if (activeScene === scene) {
+                document.querySelectorAll('.scene-btn').forEach(btn => btn.classList.remove('active'));
+                activeScene = null;
+                document.getElementById('modeValue').textContent = 'CASA';
+                return;
+            }
+
+            document.querySelectorAll('.scene-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            activeScene = scene;
+
+            if (scene === 'relax') {
+                document.getElementById('modeValue').textContent = 'RELAJ';
+                devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
+                    d.attributes.isOn = true;
+                    d.attributes.lightLevel = 30;
+                    apiCall('/api/v1/devices/' + d.id + '/actions', 'POST', { action: 'set', attributes: { isOn: true, lightLevel: 30 } });
+                });
+            } else if (scene === 'movie') {
+                document.getElementById('modeValue').textContent = 'PELI';
+                devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
+                    const name = d.attributes?.customName || d.attributes?.name || '';
+                    if (name.toLowerCase().includes('techo')) {
+                        d.attributes.isOn = false;
+                    } else {
+                        d.attributes.isOn = true;
+                        d.attributes.lightLevel = 15;
+                    }
+                    apiCall('/api/v1/devices/' + d.id + '/actions', 'POST', { action: 'set', attributes: { isOn: d.attributes.isOn, lightLevel: d.attributes.lightLevel || 100 } });
+                });
+            } else if (scene === 'away') {
+                document.getElementById('modeValue').textContent = 'FUERA';
+                devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
+                    d.attributes.isOn = false;
+                    apiCall('/api/v1/devices/' + d.id + '/actions', 'POST', { action: 'set', attributes: { isOn: false } });
+                });
+            }
+            renderUI();
+        }
+
+        function renderUI() {
+            const rooms = {};
+            const blinds = [];
+            const sensors = [];
+
+            devices.forEach(d => {
+                const type = d.type || '';
+                const name = d.attributes?.customName || d.attributes?.name || '?';
+                const room = getRoom(name);
+
+                if (type === 'light' || type === 'lamp') {
+                    if (!rooms[room]) rooms[room] = [];
+                    rooms[room].push({ ...d, name });
+                } else if (type.includes('blinds') || type.includes('blind')) {
+                    blinds.push({ ...d, name });
+                } else if (type === 'motionSensor' || type === 'openCloseSensor' || type === 'airPurifier') {
+                    sensors.push({ ...d, name, room });
+                }
+            });
+
+            let html = '';
+
+            ROOM_ORDER.forEach(room => {
+                if (!rooms[room]) return;
+                const lights = rooms[room];
+                const onCount = lights.filter(l => l.attributes?.isOn).length;
+                const hasOn = onCount > 0;
+                const icon = ROOM_ICONS[room] || '🏠';
+
+                html += '<div class="room-card' + (hasOn ? ' has-on' : '') + '">';
+                html += '<div class="room-header">';
+                html += '<div class="room-info">';
+                html += '<span class="room-icon">' + icon + '</span>';
+                html += '<div>';
+                html += '<div class="room-name">' + room + '</div>';
+                html += '<div class="room-count">' + onCount + ' / ' + lights.length + ' encendidas</div>';
+                html += '</div></div>';
+                html += '<button class="room-toggle' + (hasOn ? ' on' : '') + '" onclick="toggleRoom(\'' + room + '\')">' + (hasOn ? '⭕' : '✅') + '</button>';
+                html += '</div>';
+                html += '<div class="room-lights">';
+
+                lights.forEach(l => {
+                    const isOn = l.attributes?.isOn;
+                    const level = l.attributes?.lightLevel || 100;
+
+                    html += '<div class="light-tile' + (isOn ? ' on' : '') + '" onclick="toggleLight(\'' + l.id + '\', ' + !isOn + ')">';
+                    html += '<div class="light-top">';
+                    html += '<span class="light-icon">' + getLightIcon(l.name) + '</span>';
+                    html += '<button class="light-btn-small" onclick="event.stopPropagation(); toggleLight(\'' + l.id + '\', ' + !isOn + ')">' + (isOn ? '🔴' : '⚫') + '</button>';
+                    html += '</div>';
+                    html += '<div class="light-name">' + l.name.split(' ').slice(1).join(' ') + '</div>';
+                    html += '<div class="light-control" onclick="event.stopPropagation()">';
+                    html += '<button class="light-btn" onclick="adjustLevel(\'' + l.id + '\', -25)">−</button>';
+                    html += '<div class="light-slider-wrap"><input type="range" class="light-slider" min="1" max="100" value="' + level + '" oninput="setLightLevel(\'' + l.id + '\', this.value)"></div>';
+                    html += '<button class="light-btn" onclick="adjustLevel(\'' + l.id + '\', 25)">+</button>';
+                    html += '<span class="light-level">' + level + '%</span>';
+                    html += '</div></div>';
+                });
+
+                html += '</div></div>';
+            });
+
+            // Blinds section
+            if (blinds.length) {
+                html += '<div class="blinds-section">';
+                html += '<div class="blinds-title">🪟 Persianas</div>';
+                html += '<div class="blinds-grid">';
+                blinds.forEach(b => {
+                    const pos = b.attributes?.currentPosition || 0;
+                    html += '<div class="blind-item">';
+                    html += '<div class="blind-name">' + b.name + '</div>';
+                    html += '<div class="blind-control">';
+                    html += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 0)">▼</button>';
+                    html += '<div class="blind-slider-wrap"><input type="range" class="blind-slider" min="0" max="100" value="' + pos + '" oninput="setBlind(\'' + b.id + '\', this.value)"></div>';
+                    html += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 100)">▲</button>';
+                    html += '<span class="blind-pos">' + pos + '%</span>';
+                    html += '</div></div>';
+                });
+                html += '</div></div>';
+            }
+
+            // Sensors section
+            if (sensors.length) {
+                html += '<div class="sensors-section">';
+                html += '<div class="sensors-title">📡 Sensores</div>';
+                html += '<div class="sensors-grid">';
+                sensors.forEach(s => {
+                    const isOn = s.attributes?.isOn || false;
+                    const lastMotion = s.attributes?.lastMotionDetected || null;
+                    const battery = s.attributes?.batteryLevel || s.attributes?.battery || null;
+                    let icon = '📡';
+                    if (s.type === 'openCloseSensor') icon = '🚪';
+                    else if (s.type === 'airPurifier') icon = '💨';
+                    else if (s.type === 'motionSensor') icon = '🚶';
+
+                    html += '<div class="sensor-card">';
+                    html += '<span class="sensor-icon">' + icon + '</span>';
+                    html += '<div class="sensor-info">';
+                    html += '<div class="sensor-name">' + s.name + '</div>';
+                    html += '<div class="sensor-meta">';
+                    if (lastMotion) html += 'Movimiento: ' + formatLastMotion(lastMotion);
+                    if (battery) html += ' • Batería: ' + battery + '%';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<span class="sensor-badge ' + (isOn ? 'active' : 'inactive') + '">' + (isOn ? 'Activo' : 'Inactivo') + '</span>';
+                    html += '</div>';
+                });
+                html += '</div></div>';
+            }
+
+            document.getElementById('main').innerHTML = html;
+
+            const allLights = Object.values(rooms).flat();
+            const totalOn = allLights.filter(l => l.attributes?.isOn).length;
+            document.getElementById('lightsCount').textContent = totalOn + ' luces encendidas';
+        }
+
+        loadDevices();
+        setInterval(loadDevices, 5000);
+    </script>
+</body>
+</html>
