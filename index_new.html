@@ -619,7 +619,7 @@
     </div>
 
     <script>
-        const API = 'https://192.168.1.226:8443';
+        const API = 'http://192.168.1.172:9876/api';
         const TOKEN = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjBiOWQyMTZlODJmNzU4ZTlmMGEwNTE3ZDA4MzE2Y2I5MWM4OTlmMWMwZjE2MzFmODQ2YzE1Y2E4YTdhODJmZmMifQ.eyJpc3MiOiI2NTk1NDA4NS1kOGY4LTRjOTUtOTZiZi1mNGY0MDc4ODIyY2YiLCJ0eXBlIjoiYWNjZXNzIiwiYXVkIjoiaG9tZXNtYXJ0LmxvY2FsIiwic3ViIjoiOWMxNWNiNmMtNzRhNi00ZDJhLTk5MzAtMmFjMzY5Y2MzY2FjIiwiaWF0IjoxNzc0NzIzMjA2LCJleHAiOjIwOTAyOTkyMDZ9.mrFF36jF01Vs9LSMfcvAzUFZ1iNm0LeRH8NEEStLaBwGhzerUsPZQ2XPsfy74CStY1D20MYf1LGXJB4VTJCrlw';
 
         let devices = [];
@@ -719,7 +719,7 @@
             const statusEl = document.getElementById('statusText');
             statusEl.textContent = 'Conectando...';
             statusEl.className = '';
-            const data = await apiCall('/api/v1/devices');
+            const data = await apiCall('/v1/devices');
             if (data && Array.isArray(data)) {
                 devices = data;
                 statusEl.textContent = '✓ Conectado';
@@ -773,7 +773,7 @@
         async function toggleLight(id, isOn) {
             const dev = devices.find(d => d.id === id);
             if (dev) { dev.attributes.isOn = isOn; renderUI(); }
-            await apiCall('/api/v1/devices/' + id + '/actions', 'POST', { action: 'set', attributes: { isOn } });
+            await apiCall('/v1/devices/' + id, 'PATCH', { isOn });
         }
 
         async function setLightLevel(id, level) {
@@ -782,7 +782,7 @@
                 dev.attributes.isOn = true;
                 dev.attributes.lightLevel = parseInt(level);
                 renderUI();
-                await apiCall('/api/v1/devices/' + id + '/actions', 'POST', { action: 'set', attributes: { isOn: true, lightLevel: parseInt(level) } });
+                await apiCall('/v1/devices/' + id, 'PATCH', { isOn: true, lightLevel: parseInt(level) });
             }
         }
 
@@ -804,7 +804,7 @@
             const newState = !anyOn;
             for (const dev of roomDevices) {
                 dev.attributes.isOn = newState;
-                await apiCall('/api/v1/devices/' + dev.id + '/actions', 'POST', { action: 'set', attributes: { isOn: newState } });
+                await apiCall('/v1/devices/' + dev.id, 'PATCH', { isOn: newState });
             }
             renderUI();
         }
@@ -812,7 +812,7 @@
         async function setBlind(id, pos) {
             const dev = devices.find(d => d.id === id);
             if (dev) { dev.attributes.currentPosition = parseInt(pos); renderUI(); }
-            await apiCall('/api/v1/devices/' + id + '/actions', 'POST', { action: 'set', attributes: { currentPosition: parseInt(pos) } });
+            await apiCall('/v1/devices/' + id, 'PATCH', { currentPosition: parseInt(pos) });
         }
 
         async function setScene(scene, e) {
@@ -834,7 +834,7 @@
                 devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
                     d.attributes.isOn = true;
                     d.attributes.lightLevel = 30;
-                    apiCall('/api/v1/devices/' + d.id + '/actions', 'POST', { action: 'set', attributes: { isOn: true, lightLevel: 30 } });
+                    apiCall('/v1/devices/' + d.id, 'PATCH', { isOn: true, lightLevel: 30 });
                 });
             } else if (scene === 'movie') {
                 document.getElementById('modeValue').textContent = 'PELI';
@@ -846,13 +846,13 @@
                         d.attributes.isOn = true;
                         d.attributes.lightLevel = 15;
                     }
-                    apiCall('/api/v1/devices/' + d.id + '/actions', 'POST', { action: 'set', attributes: { isOn: d.attributes.isOn, lightLevel: d.attributes.lightLevel || 100 } });
+                    apiCall('/v1/devices/' + d.id, 'PATCH', { isOn: d.attributes.isOn, lightLevel: d.attributes.lightLevel || 100 });
                 });
             } else if (scene === 'away') {
                 document.getElementById('modeValue').textContent = 'FUERA';
                 devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
                     d.attributes.isOn = false;
-                    apiCall('/api/v1/devices/' + d.id + '/actions', 'POST', { action: 'set', attributes: { isOn: false } });
+                    apiCall('/v1/devices/' + d.id, 'PATCH', { isOn: false });
                 });
             }
             renderUI();
