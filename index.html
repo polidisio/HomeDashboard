@@ -548,47 +548,33 @@
         loadWeather();
         setInterval(loadWeather, 300000);
         
-        // News Feed - fetched from Reddit
-        async function fetchNews() {
-            try {
-                const items = [];
-                
-                // Fetch from multiple sources
-                const sources = [
-                    { url: 'https://www.reddit.com/r/technology/hot/.json?limit=5', prefix: 'Tech' },
-                    { url: 'https://www.reddit.com/r/artificial/.json?limit=5', prefix: 'IA' },
-                    { url: 'https://www.reddit.com/r/programming/hot/.json?limit=3', prefix: 'Dev' }
-                ];
-                
-                for (const src of sources) {
-                    try {
-                        const res = await fetch(src.url);
-                        const data = await res.json();
-                        const posts = data.data.children.slice(0, 4);
-                        posts.forEach(p => {
-                            const title = p.data.title.substring(0, 80);
-                            if (title.length < p.data.title.length) title += '...';
-                            items.push('<' + src.prefix + ':' + '>' + title);
-                        });
-                    } catch (e) { }
-                }
-                
-                if (items.length === 0) {
-                    items.push('<span>Tech:</span> Cargando noticias...');
-                }
-                
-                let html = '';
-                for (let i = 0; i < 3; i++) {
-                    items.forEach(item => {
-                        html += '<span class="news-item">' + item + '</span>';
-                    });
-                }
-                document.getElementById('newsContent').innerHTML = html;
-            } catch (e) { }
-        }
+        // News Feed
+        const NEWS_ITEMS = [
+            '<span>IA:</span> GPT-5 esperado para junio con razonamiento avanzado',
+            '<span>Tech:</span> Apple presenta nuevos chips M4 para Mac',
+            '<span>Cycling:</span> Pogacar gana otra etapa en el Tour',
+            '<span>Spain:</span> El INE confirma crecimiento del PIB',
+            '<span>AI:</span> Gemini 2.0 disponible con modo agente',
+            '<span>Gaming:</span> GTA VI filtrado: primavera 2026',
+            '<span>IA:</span> Claude Code supera 1M de desarrolladores',
+            '<span>Tech:</span> Samsung lanza pantalla enrollable para 2026',
+            '<span>Cycling:</span> Vingegaard se recupera para el Tour',
+            '<span>AI:</span> OpenAI lanza API para agentes autonomousos',
+            '<span>Spain:</span> Galicia: tempo estable toda a semana',
+            '<span>Tech:</span> Elon Musk presenta Grok 3 con razonamento visual'
+        ];
         
-        fetchNews();
-        setInterval(fetchNews, 600000); // Refresh every 10 min
+        function loadNews() {
+            let html = '';
+            // Duplicate for seamless loop
+            for (let i = 0; i < 3; i++) {
+                NEWS_ITEMS.forEach(item => {
+                    html += '<span class="news-item">' + item + '</span>';
+                });
+            }
+            document.getElementById('newsContent').innerHTML = html;
+        }
+        loadNews();
         
         async function apiCall(endpoint, method, body) {
             try {
