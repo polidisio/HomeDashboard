@@ -2,487 +2,711 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
     <title>🏠 Mi Casa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
+
         :root {
-            --bg: #1a1a24;
-            --surface: #252532;
-            --surface-2: #2f2f40;
-            --accent: #4ade80;
-            --accent-dim: rgba(74, 222, 128, 0.15);
-            --blue: #60a5fa;
-            --purple: #a855f7;
-            --text: #ffffff;
-            --text-2: #9ca3af;
-            --text-3: #6b7280;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --accent-primary: #00d4aa;
+            --accent-secondary: #7c3aed;
+            --accent-glow: rgba(0, 212, 170, 0.5);
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555566;
+            --success: #22c55e;
+            --border: rgba(255, 255, 255, 0.06);
         }
-        
+
         html, body { height: 100%; overflow: hidden; }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             display: flex;
             flex-direction: column;
         }
-        
-        /* TOP BAR */
-        .top-bar {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 12px;
-            padding: 16px;
-            background: var(--surface);
-            flex-shrink: 0;
-            position: relative;
-        }
-        
-        .fullscreen-btn {
-            position: fixed;
-            top: 16px;
-            right: 16px;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            border: none;
-            background: var(--surface-2);
-            color: var(--text-2);
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        .fullscreen-btn:active { transform: scale(0.95); }
-        
-        .time-card {
-            background: linear-gradient(135deg, #3b82f6, #6366f1);
-            border-radius: 20px;
-            padding: 14px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .time-value { font-size: 36px; font-weight: 700; letter-spacing: -2px; }
-        .time-date { font-size: 12px; opacity: 0.9; margin-top: 2px; }
-        
-        .time-weather {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 8px;
-            font-size: 14px;
-        }
-        
-        .time-weather-icon { font-size: 20px; }
-        .time-weather-temp { font-weight: 600; }
-        .time-weather-forecast { font-size: 11px; opacity: 0.8; margin-left: 8px; }
-        
-        .scenes-card {
-            background: linear-gradient(135deg, #8b5cf6, #a855f7);
-            border-radius: 20px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        
-        .scenes-title { font-size: 10px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
-        
-        .scenes-grid { display: flex; gap: 6px; flex: 1; align-items: center; }
-        
-        .scene-btn {
-            flex: 1;
-            aspect-ratio: 1;
-            border-radius: 10px;
-            border: none;
-            background: rgba(255,255,255,0.15);
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        
-        .scene-btn:active { transform: scale(0.95); }
-        .scene-btn.active { background: rgba(255,255,255,0.9); color: #8b5cf6; }
-        
-        .mode-card {
-            background: linear-gradient(135deg, #3b82f6, #6366f1);
-            border-radius: 20px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .mode-label { font-size: 10px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
-        .mode-value { font-size: 20px; font-weight: 700; margin-top: 6px; }
-        
-        /* NEWS TICKER */
-        .news-ticker {
-            background: var(--surface);
-            padding: 10px 16px;
-            border-bottom: 1px solid var(--surface-2);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-        
-        .news-badge {
-            background: #ef4444;
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            flex-shrink: 0;
-        }
-        
-        .news-track {
-            flex: 1;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .news-content {
-            display: flex;
-            gap: 40px;
-            animation: ticker 30s linear infinite;
-            white-space: nowrap;
-        }
-        
-        .news-content:hover { animation-play-state: paused; }
-        
-        .news-item {
-            font-size: 13px;
-            color: var(--text-2);
-        }
-        
-        .news-item span {
-            color: var(--text);
-            font-weight: 500;
-        }
-        
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        /* MAIN - ROOMS GRID */
-        .main {
-            flex: 1;
-            padding: 12px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 12px;
-            align-content: start;
-        }
-        
-        .room-card {
-            background: var(--surface);
-            border-radius: 16px;
-            padding: 14px;
-            border: 2px solid transparent;
-            min-width: 0;
-        }
-        
-        .room-card.has-on { border-color: var(--accent); background: var(--accent-dim); }
-        
-        .room-header {
+
+        /* HEADER */
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            min-width: 0;
+            padding: 12px 20px;
+            background: rgba(18, 18, 26, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
         }
-        
-        .room-info { display: flex; align-items: center; gap: 8px; min-width: 0; }
-        .room-icon { font-size: 24px; flex-shrink: 0; }
-        .room-name { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .room-count { font-size: 10px; color: var(--text-3); }
-        
-        .room-toggle {
-            width: 34px; height: 34px;
-            border-radius: 9px;
-            border: 2px solid var(--surface-2);
-            background: var(--surface-2);
+
+        .header-left { display: flex; align-items: center; gap: 16px; }
+        .header-title { font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .header-title span { font-size: 24px; }
+
+        .header-time {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .time-display {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .time-value { font-size: 20px; font-weight: 600; }
+        .time-date { font-size: 11px; color: var(--text-secondary); }
+
+        .weather-mini {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+        }
+        .weather-mini-icon { font-size: 18px; }
+        .weather-mini-temp { font-size: 14px; font-weight: 600; }
+
+        .fullscreen-btn {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
             font-size: 16px;
             cursor: pointer;
             display: flex; align-items: center; justify-content: center;
             transition: all 0.2s;
-            flex-shrink: 0;
         }
-        .room-toggle:active { transform: scale(0.95); }
-        .room-toggle.on { background: var(--accent); border-color: var(--accent); color: #000; }
-        
-        /* LIGHTS IN ROOM */
+        .fullscreen-btn:hover { background: rgba(255, 255, 255, 0.1); color: var(--text-primary); }
+
+        /* MAIN LAYOUT */
+        .main-container {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* ROOMS AREA */
+        .rooms-area {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        /* ROOM CARD */
+        .room-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px;
+            transition: all 0.3s;
+        }
+
+        .room-card:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .room-card.has-on {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.1);
+        }
+
+        .room-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .room-info { display: flex; align-items: center; gap: 10px; }
+        .room-icon { font-size: 28px; }
+        .room-name { font-size: 15px; font-weight: 600; }
+        .room-count { font-size: 11px; color: var(--text-muted); }
+
+        .room-toggle {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 20px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        .room-toggle:hover { transform: scale(1.05); }
+        .room-toggle.on {
+            background: linear-gradient(135deg, var(--accent-primary), #0891b2);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 25px var(--accent-glow);
+        }
+
+        /* LIGHTS GRID */
         .room-lights {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
         }
-        
+
+        /* LIGHT TILE */
         .light-tile {
-            background: var(--surface-2);
-            border-radius: 10px;
-            padding: 10px;
-            border: 2px solid transparent;
-            transition: all 0.2s;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
             cursor: pointer;
-            min-width: 0;
+            transition: all 0.3s;
         }
-        
-        .light-tile:active { transform: scale(0.97); }
-        .light-tile.on { background: var(--accent-dim); border-color: var(--accent); }
-        
+
+        .light-tile:hover { background: rgba(255, 255, 255, 0.06); }
+        .light-tile.on {
+            background: rgba(0, 212, 170, 0.1);
+            border-color: var(--accent-primary);
+        }
+
         .light-top {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 6px;
+            align-items: center;
+            margin-bottom: 8px;
         }
-        
-        .light-icon { font-size: 20px; }
-        .light-btn-small {
-            width: 20px; height: 20px;
-            border-radius: 5px;
+
+        .light-icon { font-size: 24px; }
+        .light-tile.on .light-icon { filter: drop-shadow(0 0 8px var(--accent-glow)); }
+
+        .light-power {
+            width: 24px; height: 24px;
+            border-radius: 50%;
             border: none;
-            background: var(--surface);
-            color: var(--text-3);
-            font-size: 9px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 10px;
             cursor: pointer;
             display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
         }
-        .light-tile.on .light-btn-small { background: var(--accent); color: #000; }
-        
+        .light-tile.on .light-power {
+            background: var(--accent-primary);
+            color: #000;
+        }
+
         .light-name {
-            font-size: 10px;
-            font-weight: 500;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        
-        .light-control {
+        .light-tile.on .light-name { color: var(--text-primary); }
+
+        /* DIMMER BAR */
+        .light-dimmer {
             display: flex;
             align-items: center;
-            gap: 4px;
-            margin-top: 6px;
-            overflow: hidden;
+            gap: 8px;
         }
-        
-        .light-btn {
-            width: 24px; height: 24px;
-            border-radius: 6px;
-            border: none;
-            background: var(--surface);
-            color: var(--text-2);
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-        }
-        .light-btn:active { transform: scale(0.9); }
-        
-        .light-slider-wrap {
+
+        .dimmer-track {
             flex: 1;
-            min-width: 0;
-            height: 24px;
+            height: 20px;
             display: flex;
             align-items: center;
+            position: relative;
         }
-        
-        .light-slider {
+
+        .dimmer-fill {
+            position: absolute;
+            left: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 3px;
+            transition: width 0.15s;
+            pointer-events: none;
+        }
+
+        .dimmer-input {
+            position: absolute;
+            left: 0;
             width: 100%;
-            height: 8px;
+            height: 20px;
             -webkit-appearance: none;
-            background: var(--surface);
-            border-radius: 4px;
-            outline: none;
+            background: transparent;
             cursor: pointer;
             margin: 0;
+            padding: 0;
+            z-index: 1;
         }
-        .light-slider::-webkit-slider-thumb {
+        .dimmer-input::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 20px; height: 20px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: #fff;
             cursor: pointer;
             box-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
-        .light-tile.on .light-slider::-webkit-slider-thumb { background: var(--accent); }
-        
-        .light-level {
-            min-width: 28px;
-            text-align: right;
+
+        .dimmer-value {
             font-size: 10px;
             font-weight: 600;
-            color: var(--text-2);
-            flex-shrink: 0;
+            color: var(--text-muted);
+            min-width: 28px;
+            text-align: right;
         }
-        .light-tile.on .light-level { color: var(--accent); }
-        
-        /* BLINDS SECTION */
-        .blinds-section {
-            grid-column: 1 / -1;
-            background: var(--surface);
-            border-radius: 16px;
-            padding: 14px;
-            margin-top: 4px;
-        }
-        
-        .blinds-title {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .light-tile.on .dimmer-value { color: var(--accent-primary); }
+
+        /* COLOR CONTROLS */
+        .light-colors {
             display: flex;
             align-items: center;
             gap: 8px;
+            margin-top: 8px;
         }
-        
-        .blinds-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 8px;
-        }
-        
-        .blind-item {
-            background: var(--surface-2);
-            border-radius: 10px;
-            padding: 10px;
-        }
-        
-        .blind-name { font-size: 11px; color: var(--text-2); margin-bottom: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        
-        .blind-control { display: flex; align-items: center; gap: 6px; overflow: hidden; }
-        
-        .blind-btn {
-            width: 28px; height: 28px;
-            border-radius: 8px;
-            border: none;
-            background: var(--surface);
-            color: var(--text-2);
-            font-size: 12px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        
-        .blind-slider-wrap {
+
+        .color-temp-wrap {
             flex: 1;
-            min-width: 0;
-            height: 28px;
             display: flex;
             align-items: center;
+            gap: 6px;
         }
-        
-        .blind-slider {
+
+        .color-temp-track {
+            flex: 1;
+            height: 12px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #ff9329 0%, #fff5e6 50%, #cce6ff 100%);
+            position: relative;
+        }
+
+        .color-temp-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 6px;
+            background: rgba(0,0,0,0.3);
+            transition: width 0.1s;
+        }
+
+        .color-temp-input {
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 100%;
-            height: 8px;
+            height: 12px;
             -webkit-appearance: none;
-            background: var(--surface);
-            border-radius: 4px;
-            outline: none;
+            background: transparent;
             cursor: pointer;
             margin: 0;
         }
-        .blind-slider::-webkit-slider-thumb {
+        .color-temp-input::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 20px; height: 20px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: var(--blue);
+            background: #fff;
             cursor: pointer;
             box-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
-        
-        .blind-pos {
+
+        .color-temp-value {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--text-muted);
             min-width: 32px;
             text-align: right;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--blue);
+        }
+
+        .color-rgb-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .color-rgb-preview {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .color-rgb-hue-track {
+            flex: 1;
+            height: 16px;
+            border-radius: 8px;
+            background: linear-gradient(to right,
+                hsl(0,100%,50%),
+                hsl(60,100%,50%),
+                hsl(120,100%,50%),
+                hsl(180,100%,50%),
+                hsl(240,100%,50%),
+                hsl(300,100%,50%),
+                hsl(360,100%,50%)
+            );
+            position: relative;
+        }
+
+        .color-rgb-hue-fill {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            border-radius: 0 8px 8px 0;
+            transition: width 0.1s;
+        }
+
+        .color-rgb-hue-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 16px;
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+            margin: 0;
+        }
+        .color-rgb-hue-input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+        }
+
+        .color-rgb-input {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0;
+            background: transparent;
             flex-shrink: 0;
         }
-        
+        .color-rgb-input::-webkit-color-swatch-wrapper { padding: 0; }
+        .color-rgb-input::-webkit-color-swatch {
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .sidebar-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+        }
+
+        .sidebar-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        /* SCENES */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .scene-btn {
+            padding: 12px 8px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+        }
+
+        .scene-btn:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
+        .scene-btn.active {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.2), rgba(124, 58, 237, 0.2));
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.2);
+        }
+
+        .scene-btn-icon { font-size: 24px; }
+        .scene-btn-name { font-weight: 500; }
+
+        /* BLINDS */
+        .blinds-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .blind-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+        }
+
+        .blind-info { flex: 1; min-width: 0; overflow: hidden; }
+        .blind-name { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .blind-status { font-size: 10px; color: var(--text-muted); }
+
+        .blind-btn {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 12px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .blind-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--accent-secondary); }
+
+        .blind-slider-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .blind-slider-container {
+            width: 80px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: visible;
+            position: relative;
+            display: flex;
+            align-items: center;
+            z-index: 0;
+        }
+
+        .blind-slider-fill {
+            position: absolute;
+            left: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent-secondary), #9333ea);
+            border-radius: 4px;
+            transition: width 0.15s;
+            pointer-events: none;
+        }
+
+        .blind-range {
+            position: absolute;
+            left: 0;
+            width: 80px;
+            height: 20px;
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+        }
+        .blind-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+
+        .blind-pos {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            min-width: 32px;
+            text-align: right;
+        }
+
         /* STATUS BAR */
         .status-bar {
-            padding: 10px 16px;
-            background: var(--surface);
-            border-top: 1px solid var(--surface-2);
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             font-size: 11px;
-            color: var(--text-3);
+            color: var(--text-muted);
             flex-shrink: 0;
         }
-        
-        ::-webkit-scrollbar { width: 4px; }
+
+        .status-bar .connected { color: var(--accent-primary); }
+        .status-bar .error { color: #ef4444; }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 2px; }
-        
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+
+        /* NEWS TICKER */
+        .news-ticker {
+            background: var(--bg-secondary);
+            padding: 8px 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .news-badge {
+            background: #ef4444;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .news-track { flex: 1; overflow: hidden; }
+
+        .news-content {
+            display: flex;
+            gap: 40px;
+            animation: ticker 40s linear infinite;
+            white-space: nowrap;
+        }
+
+        .news-item { font-size: 11px; color: var(--text-secondary); }
+        .news-item span { color: var(--accent-primary); font-weight: 500; }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; border-left: none; border-top: 1px solid var(--border); flex-direction: row; flex-wrap: wrap; }
+            .sidebar-section { flex: 1; min-width: 200px; }
+            .rooms-grid { grid-template-columns: 1fr; }
+            .room-lights { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 600px) {
-            .top-bar { grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
-            .time-card { grid-column: 1 / -1; }
-            .time-value { font-size: 32px; }
-            .main { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
-            .room-lights { grid-template-columns: 1fr; }
+            .header { padding: 10px 12px; }
+            .header-title { font-size: 14px; }
+            .weather-mini { display: none; }
+            .rooms-area { padding: 12px; }
+            .room-lights { grid-template-columns: repeat(2, 1fr); }
+            .scenes-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
 <body>
-    <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Pantalla completa">⛶</button>
-    
-    <div class="top-bar">
-        <div class="time-card">
-            <div class="time-value" id="time">--:--</div>
-            <div class="time-date" id="date"></div>
-            <div class="time-weather" id="timeWeather">
-                <span class="time-weather-icon">⛅</span>
-                <span class="time-weather-temp" id="weatherTemp">--°</span>
-                <span class="time-weather-forecast" id="weatherForecast">Mañ: --</span>
-            </div>
+    <div class="header">
+        <div class="header-left">
+            <div class="header-title"><span>🏠</span> Mi Casa</div>
         </div>
-        <div class="scenes-card">
-            <div class="scenes-title">Escenas</div>
-            <div class="scenes-grid">
-                <button class="scene-btn" onclick="setScene('relax', event)">☕</button>
-                <button class="scene-btn" onclick="setScene('movie', event)">🎬</button>
-                <button class="scene-btn" onclick="setScene('away', event)">🚶</button>
+        <div class="header-time">
+            <div class="time-display">
+                <div class="time-value" id="time">--:--</div>
+                <div class="time-date" id="date"></div>
             </div>
-        </div>
-        <div class="mode-card">
-            <div class="mode-label">Modo</div>
-            <div class="mode-value">CASA</div>
+            <div class="weather-mini">
+                <span class="weather-mini-icon" id="weatherIcon">⛅</span>
+                <span class="weather-mini-temp" id="weatherTemp">--°</span>
+            </div>
+            <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
         </div>
     </div>
-    
+
+    <div class="main-container">
+        <div class="rooms-area">
+            <div class="rooms-grid" id="roomsGrid"></div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Escenas</div>
+                <div class="scenes-grid">
+                    <button class="scene-btn" onclick="setScene('morning')">
+                        <span class="scene-btn-icon">☀️</span>
+                        <span class="scene-btn-name">Buenos días</span>
+                    </button>
+                    <button class="scene-btn" onclick="setScene('movie')">
+                        <span class="scene-btn-icon">🎬</span>
+                        <span class="scene-btn-name">Película</span>
+                    </button>
+                    <button class="scene-btn" onclick="setScene('relax')">
+                        <span class="scene-btn-icon">☕</span>
+                        <span class="scene-btn-name">Relax</span>
+                    </button>
+                    <button class="scene-btn" onclick="setScene('away')">
+                        <span class="scene-btn-icon">🚗</span>
+                        <span class="scene-btn-name">Fuera</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-section" id="blindsSection" style="display: none;">
+                <div class="sidebar-title">Persianas</div>
+                <div class="blinds-list" id="blindsList"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="news-ticker">
         <span class="news-badge">News</span>
         <div class="news-track">
             <div class="news-content" id="newsContent"></div>
         </div>
     </div>
-    
-    <div class="main" id="main"></div>
-    
+
     <div class="status-bar">
         <span id="statusText">Cargando...</span>
         <span id="lightsCount">0 luces encendidas</span>
@@ -490,18 +714,18 @@
 
     <script>
         const API = 'http://192.168.1.172:9876/api';
-        const TOKEN = 'YOUR_TOKEN_HERE';
-        
+        const TOKEN = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjBiOWQyMTZlODJmNzU4ZTlmMGEwNTE3ZDA4MzE2Y2I5MWM4OTlmMWMwZjE2MzFmODQ2YzE1Y2E4YTdhODJmZmMifQ.eyJpc3MiOiI2NTk1NDA4NS1kOGY4LTRjOTUtOTZiZi1mNGY0MDc4ODIyY2YiLCJ0eXBlIjoiYWNjZXNzIiwiYXVkIjoiaG9tZXNtYXJ0LmxvY2FsIiwic3ViIjoiOWMxNWNiNmMtNzRhNi00ZDJhLTk5MzAtMmFjMzY5Y2MzY2FjIiwiaWF0IjoxNzc0NzIzMjA2LCJleHAiOjIwOTAyOTkyMDZ9.mrFF36jF01Vs9LSMfcvAzUFZ1iNm0LeRH8NEEStLaBwGhzerUsPZQ2XPsfy74CStY1D20MYf1LGXJB4VTJCrlw';
+
         let devices = [];
-        
+        let activeScene = null;
+
         const ROOM_ICONS = {
             'Salón': '🛋️', 'Habitación': '🛏️', 'Baño': '🚿', 'Entrada': '🚪',
             'Despacho': '💻', 'Desván': '🏠', 'Ducha': '🚿', 'Mary': '🛁',
             'Escalera': '🪜', 'Estor': '🪟', 'Vestidor': '👔', 'Ender': '⚡'
         };
         const ROOM_ORDER = ['Salón', 'Habitación', 'Baño', 'Ducha', 'Entrada', 'Despacho', 'Desván', 'Escalera', 'Vestidor', 'Mary', 'Ender'];
-        
-        // Fullscreen
+
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(() => {});
@@ -509,30 +733,25 @@
                 document.exitFullscreen();
             }
         }
-        
-        // Clock
+
         function updateClock() {
             const now = new Date();
             document.getElementById('time').textContent = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-            document.getElementById('date').textContent = now.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+            document.getElementById('date').textContent = now.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
         }
         updateClock();
         setInterval(updateClock, 1000);
-        
-        // Weather - As Pontes
+
         async function loadWeather() {
             try {
                 const res = await fetch('https://wttr.in/As%20Pontes?format=j1');
                 const data = await res.json();
                 const current = data.current_condition[0];
-                const tomorrow = data.weather[1]?.hourly[4];
+                document.getElementById('weatherIcon').textContent = getWeatherIcon(current.weatherCode);
                 document.getElementById('weatherTemp').textContent = current.temp_C + '°C';
-                if (tomorrow) {
-                    document.getElementById('weatherForecast').textContent = 'Mañ: ' + getWeatherIcon(tomorrow.weatherCode) + ' ' + tomorrow.tempC + '°';
-                }
             } catch (e) { }
         }
-        
+
         function getWeatherIcon(code) {
             if (code == 113) return '☀️';
             if (code == 116) return '⛅';
@@ -544,90 +763,166 @@
             if (code >= 389 && code <= 395) return '⛈️';
             return '🌤️';
         }
-        
+
         loadWeather();
         setInterval(loadWeather, 300000);
-        
-        // News Feed
-        const NEWS_ITEMS = [
-            '<span>IA:</span> GPT-5 esperado para junio con razonamiento avanzado',
-            '<span>Tech:</span> Apple presenta nuevos chips M4 para Mac',
-            '<span>Cycling:</span> Pogacar gana otra etapa en el Tour',
-            '<span>Spain:</span> El INE confirma crecimiento del PIB',
-            '<span>AI:</span> Gemini 2.0 disponible con modo agente',
-            '<span>Gaming:</span> GTA VI filtrado: primavera 2026',
-            '<span>IA:</span> Claude Code supera 1M de desarrolladores',
-            '<span>Tech:</span> Samsung lanza pantalla enrollable para 2026',
-            '<span>Cycling:</span> Vingegaard se recupera para el Tour',
-            '<span>AI:</span> OpenAI lanza API para agentes autonomousos',
-            '<span>Spain:</span> Galicia: tempo estable toda a semana',
-            '<span>Tech:</span> Elon Musk presenta Grok 3 con razonamento visual'
-        ];
-        
-        function loadNews() {
+
+        let currentNews = [];
+
+        async function loadNews() {
+            try {
+                const newsPromises = [
+                    // Hacker News - Dev/Tech
+                    fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then(r => r.json()),
+                    // Reddit - r/technology
+                    fetch('https://www.reddit.com/r/technology/hot/.json?limit=8').then(r => r.json()),
+                    // Reddit - AI
+                    fetch('https://www.reddit.com/r/artificial/.json?limit=8').then(r => r.json()),
+                    // Reddit - sports (ES)
+                    fetch('https://www.reddit.com/r/esports/.json?limit=8').then(r => r.json())
+                ];
+
+                const results = await Promise.allSettled(newsPromises);
+                const newsItems = [];
+
+                // Hacker News
+                if (results[0].status === 'fulfilled') {
+                    const storyIds = results[0].value;
+                    const stories = await Promise.all(
+                        storyIds.slice(0, 5).map(id =>
+                            fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(r => r.json())
+                        )
+                    );
+                    stories.filter(s => s && s.title).forEach(s => {
+                        let title = s.title;
+                        if (title.length > 80) title = title.substring(0, 77) + '...';
+                        newsItems.push({
+                            cat: 'DEV',
+                            title: title,
+                            url: s.url || `https://news.ycombinator.com/item?id=${s.id}`,
+                            score: s.score
+                        });
+                    });
+                }
+
+                // Reddit Technology
+                if (results[1].status === 'fulfilled') {
+                    const data = results[1].value.data.children;
+                    data.slice(0, 3).forEach(item => {
+                        const d = item.data;
+                        let title = d.title;
+                        if (title.length > 80) title = title.substring(0, 77) + '...';
+                        newsItems.push({
+                            cat: 'TECH',
+                            title: title,
+                            url: d.url.startsWith('/') ? 'https://reddit.com' + d.url : d.url,
+                            score: d.score
+                        });
+                    });
+                }
+
+                // Reddit AI
+                if (results[2].status === 'fulfilled') {
+                    const data = results[2].value.data.children;
+                    data.slice(0, 3).forEach(item => {
+                        const d = item.data;
+                        let title = d.title;
+                        if (title.length > 80) title = title.substring(0, 77) + '...';
+                        newsItems.push({
+                            cat: 'IA',
+                            title: title,
+                            url: d.url.startsWith('/') ? 'https://reddit.com' + d.url : d.url,
+                            score: d.score
+                        });
+                    });
+                }
+
+                // Reddit Esports/Sports
+                if (results[3].status === 'fulfilled') {
+                    const data = results[3].value.data.children;
+                    data.slice(0, 3).forEach(item => {
+                        const d = item.data;
+                        let title = d.title;
+                        if (title.length > 80) title = title.substring(0, 77) + '...';
+                        newsItems.push({
+                            cat: '⚽',
+                            title: title,
+                            url: d.url.startsWith('/') ? 'https://reddit.com' + d.url : d.url,
+                            score: d.score
+                        });
+                    });
+                }
+
+                // Shuffle for variety
+                newsItems.sort(() => Math.random() - 0.5);
+
+                currentNews = newsItems.map(n =>
+                    `<span class="news-item"><a href="${n.url}" target="_blank" style="color:var(--accent-primary)">${n.cat}:</a> ${n.title}</span>`
+                );
+
+                renderNews();
+            } catch (e) {
+                // Silent fail for news
+            }
+        }
+
+        function renderNews() {
+            if (currentNews.length === 0) return;
             let html = '';
-            // Duplicate for seamless loop
             for (let i = 0; i < 3; i++) {
-                NEWS_ITEMS.forEach(item => {
-                    html += '<span class="news-item">' + item + '</span>';
+                currentNews.forEach(item => {
+                    html += item;
                 });
             }
             document.getElementById('newsContent').innerHTML = html;
         }
+
         loadNews();
-        
+        setInterval(loadNews, 300000);
+
         async function apiCall(endpoint, method, body) {
             try {
                 const opts = { method, headers: { 'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/json' } };
                 if (body) opts.body = JSON.stringify(body);
                 const res = await fetch(API + endpoint, opts);
-                return await res.json();
+                const text = await res.text();
+                try { return JSON.parse(text); } catch { return text; }
             } catch (e) { return null; }
         }
-        
+
         async function loadDevices() {
-            document.getElementById('statusText').textContent = 'Conectando...';
-            const data = await apiCall('/v1/devices', 'GET');
+            const statusEl = document.getElementById('statusText');
+            statusEl.textContent = 'Conectando...';
+            statusEl.className = '';
+            const data = await apiCall('/v1/devices');
             if (data && Array.isArray(data)) {
                 devices = data;
-                document.getElementById('statusText').textContent = '✓ Conectado';
+                statusEl.textContent = '✓ Conectado';
+                statusEl.className = 'connected';
                 renderUI();
             } else {
-                document.getElementById('statusText').textContent = '✗ Error';
+                statusEl.textContent = '✗ Error de conexión';
+                statusEl.className = 'error';
             }
         }
-        
+
         function getRoom(name) {
             const n = name.toLowerCase();
-            // Salon / Living
-            if (n.includes('salon') || n.includes('living')) return 'Salón';
-            // Habitaciones
-            if (n.includes('habitacion') || n.includes('habitacion')) return 'Habitación';
-            // Baño
-            if (n.includes('baño')) return 'Baño';
-            // Ducha
+            if (n.includes('salon') || n.includes('salón') || n.includes('living')) return 'Salón';
+            if (n.includes('habitacion') || n.includes('habit')) return 'Habitación';
+            if (n.includes('baño') || n.includes('bano')) return 'Baño';
             if (n.includes('ducha')) return 'Ducha';
-            // Entrada
             if (n.includes('entrada')) return 'Entrada';
-            // Despacho
             if (n.includes('despacho')) return 'Despacho';
-            // Desván
-            if (n.includes('desvan')) return 'Desván';
-            // Escalera
+            if (n.includes('desvan') || n.includes('desván')) return 'Desván';
             if (n.includes('escalera')) return 'Escalera';
-            // Estor
             if (n.includes('estor')) return 'Estor';
-            // Vestidor
             if (n.includes('vestidor')) return 'Vestidor';
-            // Mary
             if (n.includes('mary')) return 'Mary';
-            // Ender (solo si realmente es Ender)
             if (n.includes('ender') && !n.includes('salon') && !n.includes('salón')) return 'Ender';
-            // Salon con o sin tilde
-            if (n.includes('salon') || n.includes('salón')) return 'Salón';
             return 'Ender';
         }
-        
+
         function getLightIcon(name) {
             const n = name.toLowerCase();
             if (n.includes('techo')) return '💡';
@@ -636,34 +931,140 @@
             if (n.includes('lampara')) return '🔆';
             return '💡';
         }
-        
+
         async function toggleLight(id, isOn) {
             const dev = devices.find(d => d.id === id);
-            if (dev) { dev.attributes.isOn = isOn; renderUI(); }
+            if (!dev) return;
+            dev.attributes.isOn = isOn;
+
+            // Update UI directly without re-rendering
+            const tile = document.querySelector('.light-tile[onclick*="' + id + '"]');
+            if (tile) {
+                if (isOn) {
+                    tile.classList.add('on');
+                    tile.querySelector('.light-power').textContent = '●';
+                    tile.querySelector('.light-icon').style.filter = 'drop-shadow(0 0 8px var(--accent-glow))';
+                } else {
+                    tile.classList.remove('on');
+                    tile.querySelector('.light-power').textContent = '○';
+                    tile.querySelector('.light-icon').style.filter = '';
+                }
+            }
+
             await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { isOn } }]);
         }
-        
+
         async function setLightLevel(id, level) {
+            level = parseInt(level);
             const dev = devices.find(d => d.id === id);
-            if (dev) {
-                dev.attributes.isOn = true;
-                dev.attributes.lightLevel = parseInt(level);
-                renderUI();
+            if (!dev) return;
+
+            const wasOn = dev.attributes.isOn;
+            dev.attributes.isOn = true;
+            dev.attributes.lightLevel = level;
+
+            // Update UI immediately
+            const fill = document.getElementById('dimmerFill_' + id);
+            const valueEl = document.getElementById('dimmerValue_' + id);
+            const input = document.getElementById('dimmerSlider_' + id);
+            if (fill) fill.style.width = level + '%';
+            if (valueEl) valueEl.textContent = level + '%';
+            if (input) input.value = level;
+
+            // Make sure tile shows as ON
+            const tile = document.querySelector('.light-tile[onclick*="' + id + '"]');
+            if (tile) {
+                if (!tile.classList.contains('on')) {
+                    tile.classList.add('on');
+                    const power = tile.querySelector('.light-power');
+                    if (power) {
+                        power.textContent = '●';
+                        power.classList.add('on');
+                    }
+                }
+            }
+
+            // API call - if light was off, turn on first, then set level
+            if (!wasOn) {
                 await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { isOn: true } }]);
                 await new Promise(r => setTimeout(r, 100));
-                await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { lightLevel: parseInt(level) } }]);
             }
+            await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { lightLevel: level } }]);
         }
-        
-        async function adjustLevel(id, delta) {
+
+        async function setColorTemperature(id, temp) {
+            temp = parseInt(temp);
             const dev = devices.find(d => d.id === id);
-            if (dev) {
-                const current = dev.attributes.lightLevel || 100;
-                const newLevel = Math.max(1, Math.min(100, current + delta));
-                await setLightLevel(id, newLevel);
-            }
+            if (!dev) return;
+            dev.attributes.colorTemperature = temp;
+
+            // Update UI
+            const fill = document.getElementById('colorTempFill_' + id);
+            const valueEl = document.getElementById('colorTempValue_' + id);
+            const input = document.getElementById('colorTempInput_' + id);
+            // temp range 2200-6535, convert to percentage for fill
+            const pct = ((temp - 2200) / (6535 - 2200)) * 100;
+            if (fill) fill.style.width = (100 - pct) + '%';
+            if (valueEl) valueEl.textContent = temp + 'K';
+            if (input) input.value = temp;
+
+            await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { colorTemperature: temp } }]);
         }
-        
+
+        async function setRgbColor(id, hue, saturation = null) {
+            hue = parseFloat(hue);
+            const dev = devices.find(d => d.id === id);
+            if (!dev) return;
+            if (saturation === null) saturation = dev.attributes.colorSaturation || 1;
+            dev.attributes.colorHue = hue;
+            dev.attributes.colorSaturation = saturation;
+
+            // Update UI
+            const preview = document.getElementById('rgbPreview_' + id);
+            const fill = document.getElementById('rgbFill_' + id);
+            const valueEl = document.getElementById('rgbValue_' + id);
+            const input = document.getElementById('rgbSlider_' + id);
+            const rgbColor = hueToRgb(hue, saturation, 0.5);
+
+            if (preview) preview.style.background = rgbColor;
+            if (fill) fill.style.width = (100 - (hue / 360) * 100) + '%';
+            if (valueEl) valueEl.textContent = Math.round(hue) + '°';
+            if (input) input.value = hue;
+
+            await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { colorHue: hue, colorSaturation: saturation } }]);
+        }
+
+        function hueToRgb(hue, saturation, lightness) {
+            // Simplified HSL to RGB conversion
+            const s = saturation;
+            const l = lightness;
+            const c = (1 - Math.abs(2 * l - 1)) * s;
+            const x = c * (1 - Math.abs((hue / 60) % 2 - 1));
+            const m = l - c/2;
+            let r, g, b;
+            if (hue < 60) { r = c; g = x; b = 0; }
+            else if (hue < 120) { r = x; g = c; b = 0; }
+            else if (hue < 180) { r = 0; g = c; b = x; }
+            else if (hue < 240) { r = 0; g = x; b = c; }
+            else if (hue < 300) { r = x; g = 0; b = c; }
+            else { r = c; g = 0; b = x; }
+            return '#' + [Math.round((r+m)*255), Math.round((g+m)*255), Math.round((b+m)*255)].map(v => v.toString(16).padStart(2,'0')).join('');
+        }
+
+        function hexToHue(hex) {
+            // Convert hex to hue value (0-360)
+            const r = parseInt(hex.slice(1,3), 16) / 255;
+            const g = parseInt(hex.slice(3,5), 16) / 255;
+            const b = parseInt(hex.slice(5,7), 16) / 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h;
+            if (max === min) h = 0;
+            else if (max === r) h = 60 * ((g - b) / (max - min) + (g < b ? 6 : 0));
+            else if (max === g) h = 60 * ((b - r) / (max - min) + 2);
+            else h = 60 * ((r - g) / (max - min) + 4);
+            return Math.round(h);
+        }
+
         async function toggleRoom(roomName) {
             const roomDevices = devices.filter(d => {
                 const name = d.attributes?.customName || d.attributes?.name || '';
@@ -677,23 +1078,55 @@
             }
             renderUI();
         }
-        
+
         async function setBlind(id, pos) {
             const dev = devices.find(d => d.id === id);
-            if (dev) { dev.attributes.currentPosition = parseInt(pos); renderUI(); }
-            await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { currentPosition: parseInt(pos) } }]);
+            if (!dev) return;
+            dev.attributes.blindsTargetLevel = parseInt(pos);
+            dev.attributes.blindsCurrentLevel = parseInt(pos);
+
+            // Update UI directly
+            const fill = document.getElementById('blindFill_' + id);
+            const posEl = document.getElementById('blindPos_' + id);
+            if (fill) fill.style.width = pos + '%';
+            if (posEl) posEl.textContent = pos + '%';
+
+            await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { blindsTargetLevel: parseInt(pos) } }]);
         }
-        
-        async function setScene(scene, e) {
-            if (e) e.stopPropagation();
+
+        async function setScene(scene) {
+            if (activeScene === scene) {
+                document.querySelectorAll('.scene-btn').forEach(btn => btn.classList.remove('active'));
+                activeScene = null;
+                return;
+            }
+
             document.querySelectorAll('.scene-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            if (scene === 'relax') {
+            event.target.closest('.scene-btn').classList.add('active');
+            activeScene = scene;
+
+            if (scene === 'morning') {
+                devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
+                    d.attributes.isOn = true;
+                    d.attributes.lightLevel = 100;
+                    apiCall('/v1/devices/' + d.id, 'PATCH', [{ attributes: { isOn: true, lightLevel: 100 } }]);
+                });
+            } else if (scene === 'relax') {
                 devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
                     d.attributes.isOn = true;
                     d.attributes.lightLevel = 30;
                     apiCall('/v1/devices/' + d.id, 'PATCH', [{ attributes: { isOn: true, lightLevel: 30 } }]);
+                });
+            } else if (scene === 'movie') {
+                devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
+                    const name = d.attributes?.customName || d.attributes?.name || '';
+                    if (name.toLowerCase().includes('techo')) {
+                        d.attributes.isOn = false;
+                    } else {
+                        d.attributes.isOn = true;
+                        d.attributes.lightLevel = 15;
+                    }
+                    apiCall('/v1/devices/' + d.id, 'PATCH', [{ attributes: { isOn: d.attributes.isOn, lightLevel: d.attributes.lightLevel || 100 } }]);
                 });
             } else if (scene === 'away') {
                 devices.filter(d => d.type === 'light' || d.type === 'lamp').forEach(d => {
@@ -703,15 +1136,16 @@
             }
             renderUI();
         }
-        
+
         function renderUI() {
             const rooms = {};
             const blinds = [];
-            
+
             devices.forEach(d => {
                 const type = d.type || '';
                 const name = d.attributes?.customName || d.attributes?.name || '?';
                 const room = getRoom(name);
+
                 if (type === 'light' || type === 'lamp') {
                     if (!rooms[room]) rooms[room] = [];
                     rooms[room].push({ ...d, name });
@@ -719,73 +1153,120 @@
                     blinds.push({ ...d, name });
                 }
             });
-            
-            let html = '';
+
+            // Render room cards
+            let roomsHtml = '';
             ROOM_ORDER.forEach(room => {
                 if (!rooms[room]) return;
                 const lights = rooms[room];
                 const onCount = lights.filter(l => l.attributes?.isOn).length;
                 const hasOn = onCount > 0;
                 const icon = ROOM_ICONS[room] || '🏠';
-                
-                html += '<div class="room-card' + (hasOn ? ' has-on' : '') + '">';
-                html += '<div class="room-header">';
-                html += '<div class="room-info">';
-                html += '<span class="room-icon">' + icon + '</span>';
-                html += '<div>';
-                html += '<div class="room-name">' + room + '</div>';
-                html += '<div class="room-count">' + onCount + ' / ' + lights.length + ' on</div>';
-                html += '</div></div>';
-                html += '<button class="room-toggle' + (hasOn ? ' on' : '') + '" onclick="toggleRoom(\'' + room + '\')">' + (hasOn ? '⭕' : '✅') + '</button>';
-                html += '</div>';
-                html += '<div class="room-lights">';
-                
+
+                roomsHtml += '<div class="room-card' + (hasOn ? ' has-on' : '') + '">';
+                roomsHtml += '<div class="room-header">';
+                roomsHtml += '<div class="room-info">';
+                roomsHtml += '<span class="room-icon">' + icon + '</span>';
+                roomsHtml += '<div>';
+                roomsHtml += '<div class="room-name">' + room + '</div>';
+                roomsHtml += '<div class="room-count">' + onCount + ' de ' + lights.length + ' encendidas</div>';
+                roomsHtml += '</div></div>';
+                roomsHtml += '<button class="room-toggle' + (hasOn ? ' on' : '') + '" onclick="toggleRoom(\'' + room + '\')">' + (hasOn ? '⚡' : '○') + '</button>';
+                roomsHtml += '</div>';
+                roomsHtml += '<div class="room-lights">';
+
                 lights.forEach(l => {
                     const isOn = l.attributes?.isOn;
                     const level = l.attributes?.lightLevel || 100;
-                    
-                    html += '<div class="light-tile' + (isOn ? ' on' : '') + '" onclick="toggleLight(\'' + l.id + '\', ' + !isOn + ')">';
-                    html += '<div class="light-top">';
-                    html += '<span class="light-icon">' + getLightIcon(l.name) + '</span>';
-                    html += '<button class="light-btn-small" onclick="event.stopPropagation(); toggleLight(\'' + l.id + '\', ' + !isOn + ')">' + (isOn ? '🔴' : '⚫') + '</button>';
-                    html += '</div>';
-                    html += '<div class="light-name">' + l.name.split(' ').slice(1).join(' ') + '</div>';
-                    html += '<div class="light-control" onclick="event.stopPropagation()">';
-                    html += '<button class="light-btn" onclick="adjustLevel(\'' + l.id + '\', -10)">−</button>';
-                    html += '<div class="light-slider-wrap"><input type="range" class="light-slider" min="1" max="100" value="' + level + '" oninput="setLightLevel(\'' + l.id + '\', this.value)"></div>';
-                    html += '<button class="light-btn" onclick="adjustLevel(\'' + l.id + '\', 10)">+</button>';
-                    html += '<span class="light-level">' + level + '%</span>';
-                    html += '</div></div>';
+                    const hasColorHue = l.attributes?.colorHue !== undefined;
+                    const hasColorTemp = l.attributes?.colorTemperature !== undefined;
+
+                    roomsHtml += '<div class="light-tile' + (isOn ? ' on' : '') + '" onclick="toggleLight(\'' + l.id + '\', ' + !isOn + ')">';
+                    roomsHtml += '<div class="light-top">';
+                    roomsHtml += '<span class="light-icon">' + getLightIcon(l.name) + '</span>';
+                    roomsHtml += '<button class="light-power" onclick="event.stopPropagation(); toggleLight(\'' + l.id + '\', ' + !isOn + ')">' + (isOn ? '●' : '○') + '</button>';
+                    roomsHtml += '</div>';
+                    roomsHtml += '<div class="light-name">' + l.name.split(' ').slice(1).join(' ') + '</div>';
+                    roomsHtml += '<div class="light-dimmer" onclick="event.stopPropagation()">';
+                    roomsHtml += '<div class="dimmer-track">';
+                    roomsHtml += '<div class="dimmer-fill" id="dimmerFill_' + l.id + '" style="width: ' + level + '%"></div>';
+                    roomsHtml += '<input type="range" class="dimmer-input" id="dimmerSlider_' + l.id + '" min="0" max="100" value="' + level + '" oninput="setLightLevel(\'' + l.id + '\', this.value)">';
+                    roomsHtml += '</div>';
+                    roomsHtml += '<span class="dimmer-value" id="dimmerValue_' + l.id + '">' + level + '%</span>';
+                    roomsHtml += '</div>';
+
+                    // Color temperature control
+                    if (hasColorTemp && !hasColorHue) {
+                        const temp = l.attributes.colorTemperature || 2700;
+                        const tempPct = ((temp - 2200) / (6535 - 2200)) * 100;
+                        roomsHtml += '<div class="light-colors" onclick="event.stopPropagation()">';
+                        roomsHtml += '<div class="color-temp-wrap">';
+                        roomsHtml += '<div class="color-temp-track">';
+                        roomsHtml += '<div class="color-temp-fill" id="colorTempFill_' + l.id + '" style="width: ' + (100 - tempPct) + '%"></div>';
+                        roomsHtml += '<input type="range" class="color-temp-input" id="colorTempInput_' + l.id + '" min="2200" max="6535" value="' + temp + '" oninput="setColorTemperature(\'' + l.id + '\', this.value)">';
+                        roomsHtml += '</div>';
+                        roomsHtml += '<span class="color-temp-value" id="colorTempValue_' + l.id + '">' + temp + 'K</span>';
+                        roomsHtml += '</div>';
+                        roomsHtml += '</div>';
+                    }
+
+                    // RGB color control
+                    if (hasColorHue) {
+                        const hue = l.attributes.colorHue || 0;
+                        const sat = l.attributes.colorSaturation || 1;
+                        const rgbColor = hueToRgb(hue, sat, 0.5);
+                        roomsHtml += '<div class="light-colors" onclick="event.stopPropagation()">';
+                        roomsHtml += '<div class="color-rgb-wrap">';
+                        roomsHtml += '<input type="color" class="color-rgb-input" id="rgbInput_' + l.id + '" value="' + rgbColor + '" oninput="let h=this.value;setRgbColor(\'' + l.id + '\', hexToHue(h), 1)">';
+                        roomsHtml += '<div class="color-rgb-hue-track">';
+                        roomsHtml += '<div class="color-rgb-hue-fill" id="rgbFill_' + l.id + '" style="width:' + (100 - (hue/360)*100) + '%"></div>';
+                        roomsHtml += '<input type="range" class="color-rgb-hue-input" id="rgbSlider_' + l.id + '" min="0" max="360" value="' + Math.round(hue) + '" oninput="setRgbColor(\'' + l.id + '\', this.value)">';
+                        roomsHtml += '</div>';
+                        roomsHtml += '</div>';
+                        roomsHtml += '</div>';
+                    }
+
+                    roomsHtml += '</div>';
                 });
-                
-                html += '</div></div>';
+
+                roomsHtml += '</div></div>';
             });
-            
+
+            document.getElementById('roomsGrid').innerHTML = roomsHtml;
+
+            // Render blinds
             if (blinds.length) {
-                html += '<div class="blinds-section">';
-                html += '<div class="blinds-title">🪟 Persianas</div>';
-                html += '<div class="blinds-grid">';
+                document.getElementById('blindsSection').style.display = 'block';
+                let blindsHtml = '';
                 blinds.forEach(b => {
-                    const pos = b.attributes?.currentPosition || 0;
-                    html += '<div class="blind-item">';
-                    html += '<div class="blind-name">' + b.name + '</div>';
-                    html += '<div class="blind-control">';
-                    html += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 0)">▼</button>';
-                    html += '<div class="blind-slider-wrap"><input type="range" class="blind-slider" min="0" max="100" value="' + pos + '" oninput="setBlind(\'' + b.id + '\', this.value)"></div>';
-                    html += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 100)">▲</button>';
-                    html += '<span class="blind-pos">' + pos + '%</span>';
-                    html += '</div></div>';
+                    const pos = b.attributes?.blindsCurrentLevel ?? b.attributes?.blindsTargetLevel ?? 0;
+                    blindsHtml += '<div class="blind-item">';
+                    blindsHtml += '<div class="blind-info">';
+                    blindsHtml += '<div class="blind-name">' + b.name + '</div>';
+                    blindsHtml += '<div class="blind-status">' + pos + '% abierto</div>';
+                    blindsHtml += '</div>';
+                    blindsHtml += '<div class="blind-slider-wrap">';
+                    blindsHtml += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 0)">▼</button>';
+                    blindsHtml += '<div class="blind-slider-container">';
+                    blindsHtml += '<div class="blind-slider-fill" id="blindFill_' + b.id + '" style="width: ' + pos + '%"></div>';
+                    blindsHtml += '<input type="range" class="blind-range" min="0" max="100" value="' + pos + '" oninput="setBlind(\'' + b.id + '\', this.value)">';
+                    blindsHtml += '</div>';
+                    blindsHtml += '<button class="blind-btn" onclick="setBlind(\'' + b.id + '\', 100)">▲</button>';
+                    blindsHtml += '</div>';
+                    blindsHtml += '<span class="blind-pos" id="blindPos_' + b.id + '">' + pos + '%</span>';
+                    blindsHtml += '</div>';
                 });
-                html += '</div></div>';
+                document.getElementById('blindsList').innerHTML = blindsHtml;
+            } else {
+                document.getElementById('blindsSection').style.display = 'none';
             }
-            
-            document.getElementById('main').innerHTML = html;
-            
+
+            // Update status
             const allLights = Object.values(rooms).flat();
             const totalOn = allLights.filter(l => l.attributes?.isOn).length;
             document.getElementById('lightsCount').textContent = totalOn + ' luces encendidas';
         }
-        
+
         loadDevices();
         setInterval(loadDevices, 5000);
     </script>
