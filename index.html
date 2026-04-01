@@ -1,4 +1,26 @@
 <!DOCTYPE html>
+<!--
+    HomeDashboard - IKEA Dirigera Smart Home Controller
+    =================================================
+    A tablet-optimized dashboard for controlling IKEA Dirigera smart home devices.
+
+    Features:
+    - Room-based light control with dimming
+    - RGB and color temperature support for compatible bulbs
+    - Blind/shutter control
+    - Scene activation (Morning, Movie, Relax, Away)
+    - Live news ticker with tech/dev/sports feeds
+    - Weather display
+    - Responsive design for tablet and mobile
+
+    API Integration:
+    - Connects to local Dirigera hub via proxy (http://192.168.1.172:9876)
+    - Uses REST API with Bearer token authentication
+    - Auto-refreshes device state every 5 seconds
+
+    Author: polidisio
+    Version: 2.0
+-->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +29,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+    /*
+     * CSS VARIABLES
+     * ============
+     * Centralized design tokens for consistent theming.
+     * Modify these values to customize the dashboard appearance.
+     */
+    :root {
+        --bg-primary: #0a0a0f;        /* Main background - deep midnight */
+        --bg-secondary: #12121a;      /* Card backgrounds */
+        --bg-card: #1a1a24;          /* Elevated surfaces */
+        --accent-primary: #00d4aa;    /* Teal - active states, primary actions */
+        --accent-secondary: #7c3aed;   /* Purple - sliders, secondary accent */
+        --accent-glow: rgba(0, 212, 170, 0.5);  /* Glow effect for active devices */
+        --text-primary: #f0f0f5;      /* Main text color */
+        --text-secondary: #8888a0;    /* Muted text */
+        --text-muted: #555566;        /* Disabled/hint text */
+        --success: #22c55e;           /* Success indicators */
+        --border: rgba(255, 255, 255, 0.06);   /* Subtle borders */
+    }
+
+    /* Reset and base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    /* Full-height layout */
+    html, body { height: 100%; overflow: hidden; }
+
+    /* Body uses flexbox for header-main-footer structure */
+    body {
+        font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ===== HEADER STYLES ===== */
+    /* Fixed header with blur effect, contains title, time, weather, and fullscreen button */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         :root {
@@ -89,14 +148,16 @@
         }
         .fullscreen-btn:hover { background: rgba(255, 255, 255, 0.1); color: var(--text-primary); }
 
-        /* MAIN LAYOUT */
+        /* ===== MAIN LAYOUT =====
+         * Flex container with header, scrollable main content, and sidebar */
         .main-container {
             flex: 1;
             display: flex;
             overflow: hidden;
         }
 
-        /* ROOMS AREA */
+        /* ===== ROOMS AREA =====
+         * Main scrollable area containing room cards */
         .rooms-area {
             flex: 1;
             padding: 16px;
@@ -104,13 +165,15 @@
             overflow-x: hidden;
         }
 
+        /* Responsive grid - cards auto-fit based on minimum width */
         .rooms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 16px;
         }
 
-        /* ROOM CARD */
+        /* ===== ROOM CARD =====
+         * Container for a single room's lights. Glows when any light is on. */
         .room-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -118,11 +181,7 @@
             padding: 16px;
             transition: all 0.3s;
         }
-
-        .room-card:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
+        .room-card:hover { border-color: rgba(255, 255, 255, 0.1); }
         .room-card.has-on {
             border-color: var(--accent-primary);
             box-shadow: 0 0 30px rgba(0, 212, 170, 0.1);
@@ -140,6 +199,7 @@
         .room-name { font-size: 15px; font-weight: 600; }
         .room-count { font-size: 11px; color: var(--text-muted); }
 
+        /* Room toggle button - turns all lights in room on/off */
         .room-toggle {
             width: 44px; height: 44px;
             border-radius: 50%;
@@ -157,14 +217,16 @@
             box-shadow: 0 0 25px var(--accent-glow);
         }
 
-        /* LIGHTS GRID */
+        /* ===== LIGHTS GRID =====
+         * 3-column grid of light tiles within each room */
         .room-lights {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
 
-        /* LIGHT TILE */
+        /* ===== LIGHT TILE =====
+         * Individual light control with icon, name, dimmer, and optional color controls */
         .light-tile {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
@@ -713,12 +775,20 @@
     </div>
 
     <script>
+        /* ========================================================================
+         * CONFIGURATION
+         * ========================================================================
+         * API endpoint and authentication token for Dirigera hub
+         * Note: TOKEN should be stored securely in production
+         */
         const API = 'http://192.168.1.172:9876/api';
         const TOKEN = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjBiOWQyMTZlODJmNzU4ZTlmMGEwNTE3ZDA4MzE2Y2I5MWM4OTlmMWMwZjE2MzFmODQ2YzE1Y2E4YTdhODJmZmMifQ.eyJpc3MiOiI2NTk1NDA4NS1kOGY4LTRjOTUtOTZiZi1mNGY0MDc4ODIyY2YiLCJ0eXBlIjoiYWNjZXNzIiwiYXVkIjoiaG9tZXNtYXJ0LmxvY2FsIiwic3ViIjoiOWMxNWNiNmMtNzRhNi00ZDJhLTk5MzAtMmFjMzY5Y2MzY2FjIiwiaWF0IjoxNzc0NzIzMjA2LCJleHAiOjIwOTAyOTkyMDZ9.mrFF36jF01Vs9LSMfcvAzUFZ1iNm0LeRH8NEEStLaBwGhzerUsPZQ2XPsfy74CStY1D20MYf1LGXJB4VTJCrlw';
 
-        let devices = [];
-        let activeScene = null;
+        /* Global state */
+        let devices = [];          /* Cached device list from Dirigera hub */
+        let activeScene = null;     /* Currently active scene (if any) */
 
+        /* Room configuration: icons and display order */
         const ROOM_ICONS = {
             'Salón': '🛋️', 'Habitación': '🛏️', 'Baño': '🚿', 'Entrada': '🚪',
             'Despacho': '💻', 'Desván': '🏠', 'Ducha': '🚿', 'Mary': '🛁',
@@ -726,6 +796,13 @@
         };
         const ROOM_ORDER = ['Salón', 'Habitación', 'Baño', 'Ducha', 'Entrada', 'Despacho', 'Desván', 'Escalera', 'Vestidor', 'Mary', 'Ender'];
 
+        /* ========================================================================
+         * UTILITY FUNCTIONS
+         * ======================================================================== */
+
+        /**
+         * Toggle browser fullscreen mode for tablet/TV display
+         */
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(() => {});
@@ -734,6 +811,10 @@
             }
         }
 
+        /**
+         * Update clock display in header (called every second)
+         * Uses Spanish locale for time and date formatting
+         */
         function updateClock() {
             const now = new Date();
             document.getElementById('time').textContent = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
@@ -742,6 +823,17 @@
         updateClock();
         setInterval(updateClock, 1000);
 
+        /* ========================================================================
+         * WEATHER
+         * ========================================================================
+         * Fetches weather data from wttr.in for location "As Pontes" (Galicia, Spain)
+         * Updates every 5 minutes
+         */
+
+        /**
+         * Load weather data from wttr.in API
+         * Maps weather codes to emoji icons
+         */
         async function loadWeather() {
             try {
                 const res = await fetch('https://wttr.in/As%20Pontes?format=j1');
@@ -752,104 +844,93 @@
             } catch (e) { }
         }
 
+        /**
+         * Convert wttr.in weather codes to emoji icons
+         * @param {number} code - Weather condition code
+         * @returns {string} Emoji representation
+         */
         function getWeatherIcon(code) {
-            if (code == 113) return '☀️';
-            if (code == 116) return '⛅';
-            if (code == 119 || code == 122) return '☁️';
-            if (code >= 127 && code <= 143) return '🌧️';
-            if (code >= 176 && code <= 263) return '🌧️';
-            if (code >= 266 && code <= 299) return '🌧️';
-            if (code >= 305 && code <= 386) return '🌧️';
-            if (code >= 389 && code <= 395) return '⛈️';
+            if (code == 113) return '☀️';      /* Clear/Sunny */
+            if (code == 116) return '⛅';      /* Partly cloudy */
+            if (code == 119 || code == 122) return '☁️';  /* Cloudy/Overcast */
+            if (code >= 127 && code <= 143) return '🌧️';  /* Mist/Fog */
+            if (code >= 176 && code <= 263) return '🌧️';  /* Rain */
+            if (code >= 266 && code <= 299) return '🌧️';  /* Drizzle */
+            if (code >= 305 && code <= 386) return '🌧️';  /* Rain showers */
+            if (code >= 389 && code <= 395) return '⛈️';   /* Thunder */
             return '🌤️';
         }
 
         loadWeather();
         setInterval(loadWeather, 300000);
 
+        /* ========================================================================
+         * NEWS TICKER
+         * ========================================================================
+         * Aggregates news from multiple sources:
+         * - Hacker News (DEV)
+         * - Reddit r/technology (TECH)
+         * - Reddit r/artificial (IA)
+         * - Reddit r/esports (⚽ Sports)
+         *
+         * News is shuffled for variety and refreshed every 5 minutes
+         */
+
         let currentNews = [];
 
+        /**
+         * Load news from all configured sources in parallel
+         * Uses Promise.allSettled to handle individual source failures gracefully
+         */
         async function loadNews() {
             try {
                 const newsPromises = [
-                    // Hacker News - Dev/Tech
                     fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then(r => r.json()),
-                    // Reddit - r/technology
                     fetch('https://www.reddit.com/r/technology/hot/.json?limit=8').then(r => r.json()),
-                    // Reddit - AI
                     fetch('https://www.reddit.com/r/artificial/.json?limit=8').then(r => r.json()),
-                    // Reddit - sports (ES)
                     fetch('https://www.reddit.com/r/esports/.json?limit=8').then(r => r.json())
                 ];
 
                 const results = await Promise.allSettled(newsPromises);
                 const newsItems = [];
 
-                // Hacker News
+                // Hacker News - Development & Tech
                 if (results[0].status === 'fulfilled') {
-                    const storyIds = results[0].value;
                     const stories = await Promise.all(
-                        storyIds.slice(0, 5).map(id =>
+                        results[0].value.slice(0, 5).map(id =>
                             fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(r => r.json())
                         )
                     );
                     stories.filter(s => s && s.title).forEach(s => {
-                        let title = s.title;
-                        if (title.length > 80) title = title.substring(0, 77) + '...';
-                        newsItems.push({
-                            cat: 'DEV',
-                            title: title,
-                            url: s.url || `https://news.ycombinator.com/item?id=${s.id}`,
-                            score: s.score
-                        });
+                        let title = s.title.length > 80 ? s.title.substring(0, 77) + '...' : s.title;
+                        newsItems.push({ cat: 'DEV', title, url: s.url || `https://news.ycombinator.com/item?id=${s.id}` });
                     });
                 }
 
-                // Reddit Technology
+                // Reddit - Technology
                 if (results[1].status === 'fulfilled') {
-                    const data = results[1].value.data.children;
-                    data.slice(0, 3).forEach(item => {
-                        const d = item.data;
-                        let title = d.title;
-                        if (title.length > 80) title = title.substring(0, 77) + '...';
-                        newsItems.push({
-                            cat: 'TECH',
-                            title: title,
-                            url: d.url.startsWith('/') ? 'https://reddit.com' + d.url : d.url,
-                            score: d.score
-                        });
+                    results[1].value.data.children.slice(0, 3).forEach(item => {
+                        let title = item.data.title.length > 80 ? item.data.title.substring(0, 77) + '...' : item.data.title;
+                        const url = item.data.url.startsWith('/') ? 'https://reddit.com' + item.data.url : item.data.url;
+                        newsItems.push({ cat: 'TECH', title, url });
                     });
                 }
 
-                // Reddit AI
+                // Reddit - AI
                 if (results[2].status === 'fulfilled') {
-                    const data = results[2].value.data.children;
-                    data.slice(0, 3).forEach(item => {
-                        const d = item.data;
-                        let title = d.title;
-                        if (title.length > 80) title = title.substring(0, 77) + '...';
-                        newsItems.push({
-                            cat: 'IA',
-                            title: title,
-                            url: d.url.startsWith('/') ? 'https://reddit.com' + d.url : d.url,
-                            score: d.score
-                        });
+                    results[2].value.data.children.slice(0, 3).forEach(item => {
+                        let title = item.data.title.length > 80 ? item.data.title.substring(0, 77) + '...' : item.data.title;
+                        const url = item.data.url.startsWith('/') ? 'https://reddit.com' + item.data.url : item.data.url;
+                        newsItems.push({ cat: 'IA', title, url });
                     });
                 }
 
-                // Reddit Esports/Sports
+                // Reddit - Sports/Esports
                 if (results[3].status === 'fulfilled') {
-                    const data = results[3].value.data.children;
-                    data.slice(0, 3).forEach(item => {
-                        const d = item.data;
-                        let title = d.title;
-                        if (title.length > 80) title = title.substring(0, 77) + '...';
-                        newsItems.push({
-                            cat: '⚽',
-                            title: title,
-                            url: d.url.startsWith('/') ? 'https://reddit.com' + d.url : d.url,
-                            score: d.score
-                        });
+                    results[3].value.data.children.slice(0, 3).forEach(item => {
+                        let title = item.data.title.length > 80 ? item.data.title.substring(0, 77) + '...' : item.data.title;
+                        const url = item.data.url.startsWith('/') ? 'https://reddit.com' + item.data.url : item.data.url;
+                        newsItems.push({ cat: '⚽', title, url });
                     });
                 }
 
@@ -862,17 +943,18 @@
 
                 renderNews();
             } catch (e) {
-                // Silent fail for news
+                // Silent fail - news ticker won't break the dashboard
             }
         }
 
+        /**
+         * Render news items into ticker, tripling for seamless loop animation
+         */
         function renderNews() {
             if (currentNews.length === 0) return;
             let html = '';
             for (let i = 0; i < 3; i++) {
-                currentNews.forEach(item => {
-                    html += item;
-                });
+                currentNews.forEach(item => { html += item; });
             }
             document.getElementById('newsContent').innerHTML = html;
         }
@@ -880,6 +962,20 @@
         loadNews();
         setInterval(loadNews, 300000);
 
+        /* ========================================================================
+         * DIRIGERA API INTEGRATION
+         * ========================================================================
+         * Communicates with IKEA Dirigera hub via local proxy
+         * API Format: PATCH requests wrap attributes in [{"attributes": {...}}]
+         */
+
+        /**
+         * Make API call to Dirigera hub
+         * @param {string} endpoint - API endpoint (e.g., '/v1/devices')
+         * @param {string} method - HTTP method (GET, POST, PATCH, etc.)
+         * @param {object} body - Request body (will be JSON stringified)
+         * @returns {Promise} Parsed JSON response or null on error
+         */
         async function apiCall(endpoint, method, body) {
             try {
                 const opts = { method, headers: { 'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/json' } };
@@ -890,6 +986,14 @@
             } catch (e) { return null; }
         }
 
+        /* ========================================================================
+         * DEVICE MANAGEMENT
+         * ======================================================================== */
+
+        /**
+         * Load all devices from Dirigera hub and render UI
+         * Called on initial load and every 5 seconds for auto-refresh
+         */
         async function loadDevices() {
             const statusEl = document.getElementById('statusText');
             statusEl.textContent = 'Conectando...';
@@ -906,6 +1010,15 @@
             }
         }
 
+        /* ========================================================================
+         * ROOM AND DEVICE HELPERS
+         * ======================================================================== */
+
+        /**
+         * Map device customName to room category
+         * @param {string} name - Device customName from Dirigera
+         * @returns {string} Room name
+         */
         function getRoom(name) {
             const n = name.toLowerCase();
             if (n.includes('salon') || n.includes('salón') || n.includes('living')) return 'Salón';
@@ -923,6 +1036,11 @@
             return 'Ender';
         }
 
+        /**
+         * Get emoji icon based on light name
+         * @param {string} name - Device name
+         * @returns {string} Emoji icon
+         */
         function getLightIcon(name) {
             const n = name.toLowerCase();
             if (n.includes('techo')) return '💡';
@@ -932,6 +1050,19 @@
             return '💡';
         }
 
+        /* ========================================================================
+         * LIGHT CONTROL
+         * ========================================================================
+         * Controls include on/off toggle, brightness dimmer,
+         * color temperature, and RGB color (for compatible bulbs)
+         */
+
+        /**
+         * Toggle light on/off
+         * Updates UI directly to avoid full re-render which would reset slider positions
+         * @param {string} id - Device ID
+         * @param {boolean} isOn - Target state
+         */
         async function toggleLight(id, isOn) {
             const dev = devices.find(d => d.id === id);
             if (!dev) return;
@@ -954,6 +1085,12 @@
             await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { isOn } }]);
         }
 
+        /**
+         * Set light brightness level (dimmer)
+         * If light is off, turns it on first, then sets level
+         * @param {string} id - Device ID
+         * @param {number} level - Brightness level (0-100)
+         */
         async function setLightLevel(id, level) {
             level = parseInt(level);
             const dev = devices.find(d => d.id === id);
@@ -973,15 +1110,10 @@
 
             // Make sure tile shows as ON
             const tile = document.querySelector('.light-tile[onclick*="' + id + '"]');
-            if (tile) {
-                if (!tile.classList.contains('on')) {
-                    tile.classList.add('on');
-                    const power = tile.querySelector('.light-power');
-                    if (power) {
-                        power.textContent = '●';
-                        power.classList.add('on');
-                    }
-                }
+            if (tile && !tile.classList.contains('on')) {
+                tile.classList.add('on');
+                const power = tile.querySelector('.light-power');
+                if (power) { power.textContent = '●'; power.classList.add('on'); }
             }
 
             // API call - if light was off, turn on first, then set level
@@ -992,6 +1124,11 @@
             await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { lightLevel: level } }]);
         }
 
+        /**
+         * Set color temperature for white-light bulbs
+         * @param {string} id - Device ID
+         * @param {number} temp - Temperature in Kelvin (2200-6535)
+         */
         async function setColorTemperature(id, temp) {
             temp = parseInt(temp);
             const dev = devices.find(d => d.id === id);
@@ -1011,6 +1148,12 @@
             await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { colorTemperature: temp } }]);
         }
 
+        /**
+         * Set RGB color for color-capable bulbs
+         * @param {string} id - Device ID
+         * @param {number} hue - Hue value (0-360 degrees)
+         * @param {number} saturation - Saturation (0-1), defaults to current
+         */
         async function setRgbColor(id, hue, saturation = null) {
             hue = parseFloat(hue);
             const dev = devices.find(d => d.id === id);
@@ -1034,13 +1177,17 @@
             await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { colorHue: hue, colorSaturation: saturation } }]);
         }
 
+        /**
+         * Convert HSL color to hex string
+         * @param {number} hue - Hue (0-360)
+         * @param {number} saturation - Saturation (0-1)
+         * @param {number} lightness - Lightness (0-1)
+         * @returns {string} Hex color e.g., '#ff5500'
+         */
         function hueToRgb(hue, saturation, lightness) {
-            // Simplified HSL to RGB conversion
-            const s = saturation;
-            const l = lightness;
-            const c = (1 - Math.abs(2 * l - 1)) * s;
+            const c = (1 - Math.abs(2 * lightness - 1)) * saturation;
             const x = c * (1 - Math.abs((hue / 60) % 2 - 1));
-            const m = l - c/2;
+            const m = lightness - c/2;
             let r, g, b;
             if (hue < 60) { r = c; g = x; b = 0; }
             else if (hue < 120) { r = x; g = c; b = 0; }
@@ -1051,8 +1198,12 @@
             return '#' + [Math.round((r+m)*255), Math.round((g+m)*255), Math.round((b+m)*255)].map(v => v.toString(16).padStart(2,'0')).join('');
         }
 
+        /**
+         * Convert hex color to hue value
+         * @param {string} hex - Hex color e.g., '#ff5500'
+         * @returns {number} Hue (0-360)
+         */
         function hexToHue(hex) {
-            // Convert hex to hue value (0-360)
             const r = parseInt(hex.slice(1,3), 16) / 255;
             const g = parseInt(hex.slice(3,5), 16) / 255;
             const b = parseInt(hex.slice(5,7), 16) / 255;
@@ -1065,6 +1216,14 @@
             return Math.round(h);
         }
 
+        /* ========================================================================
+         * ROOM CONTROL
+         * ======================================================================== */
+
+        /**
+         * Toggle all lights in a room on/off
+         * @param {string} roomName - Name of the room
+         */
         async function toggleRoom(roomName) {
             const roomDevices = devices.filter(d => {
                 const name = d.attributes?.customName || d.attributes?.name || '';
@@ -1079,6 +1238,17 @@
             renderUI();
         }
 
+        /* ========================================================================
+         * BLIND CONTROL
+         * ========================================================================
+         * Controls window blinds/shutters via blindsTargetLevel attribute
+         */
+
+        /**
+         * Set blind position (0=open, 100=closed)
+         * @param {string} id - Device ID
+         * @param {number} pos - Position percentage
+         */
         async function setBlind(id, pos) {
             const dev = devices.find(d => d.id === id);
             if (!dev) return;
@@ -1094,6 +1264,20 @@
             await apiCall('/v1/devices/' + id, 'PATCH', [{ attributes: { blindsTargetLevel: parseInt(pos) } }]);
         }
 
+        /* ========================================================================
+         * SCENES
+         * ========================================================================
+         * Pre-configured lighting moods that affect all lights
+         * - morning: All lights on at 100%
+         * - relax: All lights on at 30%
+         * - movie: Ceiling lights off, others dimmed to 15%
+         * - away: All lights off
+         */
+
+        /**
+         * Activate a scene preset
+         * @param {string} scene - Scene name: 'morning', 'relax', 'movie', 'away'
+         */
         async function setScene(scene) {
             if (activeScene === scene) {
                 document.querySelectorAll('.scene-btn').forEach(btn => btn.classList.remove('active'));
@@ -1137,10 +1321,26 @@
             renderUI();
         }
 
+        /* ========================================================================
+         * UI RENDERING
+         * ========================================================================
+         * Main function that builds the DOM from device state.
+         * Called on initial load and after device refresh.
+         *
+         * Note: Individual controls (toggleLight, setLightLevel, etc.) update
+         * the DOM directly to avoid full re-renders which would reset slider
+         * positions and user input.
+         */
+
+        /**
+         * Render entire UI based on current devices state
+         * Groups devices by room, detects light capabilities, renders appropriate controls
+         */
         function renderUI() {
             const rooms = {};
             const blinds = [];
 
+            // Group devices by room and type
             devices.forEach(d => {
                 const type = d.type || '';
                 const name = d.attributes?.customName || d.attributes?.name || '?';
@@ -1154,7 +1354,7 @@
                 }
             });
 
-            // Render room cards
+            // Render room cards in configured order
             let roomsHtml = '';
             ROOM_ORDER.forEach(room => {
                 if (!rooms[room]) return;
@@ -1163,6 +1363,7 @@
                 const hasOn = onCount > 0;
                 const icon = ROOM_ICONS[room] || '🏠';
 
+                // Room card header
                 roomsHtml += '<div class="room-card' + (hasOn ? ' has-on' : '') + '">';
                 roomsHtml += '<div class="room-header">';
                 roomsHtml += '<div class="room-info">';
@@ -1175,6 +1376,7 @@
                 roomsHtml += '</div>';
                 roomsHtml += '<div class="room-lights">';
 
+                // Light tiles
                 lights.forEach(l => {
                     const isOn = l.attributes?.isOn;
                     const level = l.attributes?.lightLevel || 100;
@@ -1187,6 +1389,8 @@
                     roomsHtml += '<button class="light-power" onclick="event.stopPropagation(); toggleLight(\'' + l.id + '\', ' + !isOn + ')">' + (isOn ? '●' : '○') + '</button>';
                     roomsHtml += '</div>';
                     roomsHtml += '<div class="light-name">' + l.name.split(' ').slice(1).join(' ') + '</div>';
+
+                    // Dimmer control
                     roomsHtml += '<div class="light-dimmer" onclick="event.stopPropagation()">';
                     roomsHtml += '<div class="dimmer-track">';
                     roomsHtml += '<div class="dimmer-fill" id="dimmerFill_' + l.id + '" style="width: ' + level + '%"></div>';
@@ -1195,7 +1399,7 @@
                     roomsHtml += '<span class="dimmer-value" id="dimmerValue_' + l.id + '">' + level + '%</span>';
                     roomsHtml += '</div>';
 
-                    // Color temperature control
+                    // Color temperature control (white bulbs only)
                     if (hasColorTemp && !hasColorHue) {
                         const temp = l.attributes.colorTemperature || 2700;
                         const tempPct = ((temp - 2200) / (6535 - 2200)) * 100;
@@ -1210,7 +1414,7 @@
                         roomsHtml += '</div>';
                     }
 
-                    // RGB color control
+                    // RGB color control (color-capable bulbs)
                     if (hasColorHue) {
                         const hue = l.attributes.colorHue || 0;
                         const sat = l.attributes.colorSaturation || 1;
@@ -1234,7 +1438,7 @@
 
             document.getElementById('roomsGrid').innerHTML = roomsHtml;
 
-            // Render blinds
+            // Render blinds in sidebar
             if (blinds.length) {
                 document.getElementById('blindsSection').style.display = 'block';
                 let blindsHtml = '';
@@ -1261,7 +1465,7 @@
                 document.getElementById('blindsSection').style.display = 'none';
             }
 
-            // Update status
+            // Update status bar with light count
             const allLights = Object.values(rooms).flat();
             const totalOn = allLights.filter(l => l.attributes?.isOn).length;
             document.getElementById('lightsCount').textContent = totalOn + ' luces encendidas';
